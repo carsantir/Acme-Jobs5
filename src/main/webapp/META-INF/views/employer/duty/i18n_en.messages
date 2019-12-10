@@ -18,4 +18,5 @@ employer.duty.form.label.description=Description
 employer.duty.form.label.percentage=Percentage
 employer.duty.form.label.job.reference=Job which contains it
 
+employer.duty.form.button.create=Create
 employer.duty.form.button.return=Return

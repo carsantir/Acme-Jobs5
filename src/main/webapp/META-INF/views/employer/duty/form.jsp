@@ -18,8 +18,19 @@
 <acme:form>
 	<acme:form-textbox code="employer.duty.form.label.title" path="title"/>
 	<acme:form-textbox code="employer.duty.form.label.description" path="description" />
-	<acme:form-moment code="employer.duty.form.label.percentage" path="percentage" />
-	<acme:form-textbox code="employer.duty.form.label.job.reference" path="job.reference" />
+	<acme:form-double code="employer.duty.form.label.percentage" path="percentage" />
 	
+	<jstl:if test="${command != 'create' }">
+		<acme:form-textbox code="employer.duty.form.label.job.reference" path="job.reference" readonly="true"/>
+	</jstl:if>
+	
+	<jstl:if test="${command == 'create' }">
+		<acme:form-hidden path="job"/>
+	</jstl:if>
+	
+	<acme:form-submit test="${command == 'create' }"
+		code="employer.duty.form.button.create"
+		action="/employer/duty/create?jobId=${job.id}"/>
+		
 	<acme:form-return code="employer.duty.form.button.return"/>
 </acme:form>
