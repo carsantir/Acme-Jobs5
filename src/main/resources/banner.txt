@@ -7,4 +7,4 @@
                     
 ${Ansi.DEFAULT}
 Powered by Spring Boot ${spring-boot.version}
-Powered by Acme-Jobs 2.19.1
+Powered by Acme-Jobs 2.19.3
