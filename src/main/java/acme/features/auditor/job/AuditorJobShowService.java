@@ -2,6 +2,7 @@
 package acme.features.auditor.job;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -32,14 +33,22 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		Job job;
 		Employer employer;
 		Principal principal;
+		int idPrincipal;
 		jobId = request.getModel().getInteger("id");
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
 		Calendar actual = new GregorianCalendar();
-
 		Date fechaActual = actual.getTime();
-		result = !job.isDraft() && job.getDeadline().after(fechaActual) || (job.isDraft() || !job.getDeadline().after(fechaActual)) && employer.getUserAccount().getId() == principal.getAccountId();
+		idPrincipal = principal.getActiveRoleId();
+
+		Collection<Integer> idNotEnabled = this.repository.findOneAuditorByEnabled();
+
+		if (idNotEnabled.contains(idPrincipal)) {
+			return false;
+		} else {
+			result = !job.isDraft() && job.getDeadline().after(fechaActual) || (job.isDraft() || !job.getDeadline().after(fechaActual)) && employer.getUserAccount().getId() == principal.getAccountId();
+		}
 		return result;
 	}
 	@Override

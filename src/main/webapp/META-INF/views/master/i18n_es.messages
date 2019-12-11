@@ -66,6 +66,7 @@ master.menu.administrator.non-commercial-banner = Estandartes no comerciales
 master.menu.administrator.commercial-banner = Estandartes comerciales
 master.menu.administrator.commercial-banner.create = Crear estandarte comercial
 master.menu.administrator.non-commercial-banner.create = Crear estandarte no comercial
+master.menu.administrator.auditor=Peticiones de auditores
 
 # master.menu.provider ########################################################
 
@@ -112,6 +113,8 @@ master.menu.user-account.employer=Datos del empleador
 master.menu.user-account.become-employer=Hazte empleador
 master.menu.user-account.worker=Datos del trabajador
 master.menu.user-account.become-worker=Hazte trabajador
+master.menu.user-account.auditor=Datos del auditor
+master.menu.user-account.become-auditor=Hazte auditor
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
