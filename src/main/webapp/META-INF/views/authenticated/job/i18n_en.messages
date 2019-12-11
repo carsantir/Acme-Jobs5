@@ -24,3 +24,4 @@ authenticated.job.form.button.return=Return
 authenticated.job.form.label.duties=View duties
 authenticated.job.form.label.username=Employer username
 authenticated.job.form.button.link=List audit records
+authenticated.job.form.button.apply = Apply job

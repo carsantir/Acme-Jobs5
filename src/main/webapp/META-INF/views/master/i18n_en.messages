@@ -66,6 +66,7 @@ master.menu.administrator.non-commercial-banner = Non commercial banners
 master.menu.administrator.commercial-banner = Commercial banners
 master.menu.administrator.commercial-banner.create = Create commercial banner
 master.menu.administrator.non-commercial-banner.create = Create non commercial banner
+master.menu.administrator.auditor=Auditor requests
 
 # master.menu.provider ########################################################
 
@@ -112,6 +113,8 @@ master.menu.user-account.employer=Employer data
 master.menu.user-account.become-employer=Become an employer
 master.menu.user-account.worker=Worker data
 master.menu.user-account.become-worker=Become a worker
+master.menu.user-account.auditor=Auditor data
+master.menu.user-account.become-auditor=Become auditor
 master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data

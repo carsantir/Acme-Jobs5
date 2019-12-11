@@ -17,6 +17,7 @@ worker.application.form.label.qualifications = Títulos
 worker.application.form.label.job.title = Título del trabajo
 worker.application.form.label.job.reference = Referencia del trabajo
 worker.application.form.label.worker.userAccount.username = Usuario del trabajador
+worker.application.form.button.create = Solicitar trabajo
 
 
 worker.application.list.label.referenceNumber = Referencia
