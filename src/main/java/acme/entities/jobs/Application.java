@@ -38,7 +38,6 @@ public class Application extends DomainEntity {
 	private String				referenceNumber;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
 	@Past
 	private Date				moment;
 

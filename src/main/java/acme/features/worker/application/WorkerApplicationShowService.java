@@ -56,7 +56,7 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneApplicationById(id);
 
-		Job aux = this.repository.findOneJobById(id);
+		Job aux = this.repository.findOneJobByApplicationId(id);
 
 		request.getModel().setAttribute("job.title", aux.getTitle());
 		request.getModel().setAttribute("job.reference", aux.getReference());
