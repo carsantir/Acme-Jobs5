@@ -17,6 +17,7 @@ worker.application.form.label.qualifications = Qualifications
 worker.application.form.label.job.title = Job's title
 worker.application.form.label.job.reference = Job's reference
 worker.application.form.label.worker.userAccount.username = Worker's username
+worker.application.form.button.create = Apply job
 
 
 worker.application.list.label.referenceNumber = Reference
