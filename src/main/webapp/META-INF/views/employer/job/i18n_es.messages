@@ -23,4 +23,11 @@ employer.job.form.label.duty=Deberes
 employer.job.form.button.return=Volver
 employer.job.form.label.draft=¿Es un borrador?
 employer.job.form.label.username=Empleador
+employer.job.form.button.create=Crear
+employer.job.form.button.create.duty=Crear deber
 employer.job.form.button.link=Listar registros de auditoría
+
+employer.job.error.workload=Para poderlo guardar como publicado debe tener unos deberes que sumen el 100%
+employer.job.error.spam=El texto supera el número de palabras spam permitidas
+employer.job.error.future=La fecha límite debe ser futura
+employer.job.error.must-be-euro = La divisa debe ser € o EUR (que representa los euros)

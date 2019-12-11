@@ -22,11 +22,19 @@
 	<acme:form-money code="employer.job.form.label.salary" path="salary" />
 	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" />
 	<acme:form-textarea code="employer.job.form.label.description" path="description" />
-	<acme:form-textbox code="employer.job.form.label.username" path="employer.userAccount.username" />
+	<jstl:if test="${command != 'create'}">
+		<acme:form-textbox code="employer.job.form.label.username" path="employer.userAccount.username" />
+	</jstl:if>
 	<acme:form-checkbox code="employer.job.form.label.draft" path="draft" />
 	<acme:form-hidden path="id"/>
-	<acme:form-submit code="employer.job.form.label.duty" action="/employer/duty/list?id=${id}" method="get"/>
-	<acme:form-submit code="employer.job.form.button.link" action="/employer/audit-record/list-all-active?id=${id}" method="get" />
+	<jstl:if test="${command != 'create'}">
+		<acme:form-submit code="employer.job.form.label.duty" action="/employer/duty/list?id=${id}" method="get"/>
+		<acme:form-submit code="employer.job.form.button.create.duty" action="/employer/duty/create?jobId=${id}" method="get"/>
+		<acme:form-submit code="employer.job.form.button.link" action="/employer/audit-record/list-all-active?id=${id}" method="get" />
+	</jstl:if>
+	<acme:form-submit test="${command == 'create' }"
+		code="employer.job.form.button.create"
+		action="/employer/job/create"/>
 	
 	<acme:form-return code="employer.job.form.button.return"/>
 </acme:form>
