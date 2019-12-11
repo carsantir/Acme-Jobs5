@@ -24,6 +24,7 @@
 	<jstl:if test="${command != 'create'}">
 	<acme:form-moment code="worker.application.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textarea code="worker.application.form.label.status" path="status" readonly="true"/>
+	<acme:form-textarea code="worker.application.form.label.justification" path="justification" readonly="true" />
 	<acme:form-textbox code="worker.application.form.label.job.title" path="job.title" readonly="true"/>
 	<acme:form-textbox code="worker.application.form.label.job.reference" path="job.reference" readonly="true"/>
 	<acme:form-textbox code="worker.application.form.label.worker.userAccount.username" path="worker.userAccount.username" readonly="true"/>

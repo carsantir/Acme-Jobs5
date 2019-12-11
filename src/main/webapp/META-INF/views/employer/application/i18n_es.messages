@@ -23,5 +23,10 @@ employer.application.form.label.qualifications = Títulos
 employer.application.form.label.job.title = Título del trabajo
 employer.application.form.label.job.reference = Referencia del trabajo
 employer.application.form.label.worker.userAccount.username = Usuario del trabajador
+employer.application.form.label.justification = Justificación del estado
 
 employer.application.form.button.return = Volver
+employer.application.form.button.reject = Rechazar
+
+employer.application.error.need-justification = Se necesita una justificación si se rechaza
+employer.application.error.must-be-pending = El estado tiene que ser pendiente para poder aceptarlo o rechazarlo

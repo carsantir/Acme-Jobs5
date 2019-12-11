@@ -23,5 +23,11 @@ employer.application.form.label.qualifications = Qualifications
 employer.application.form.label.job.title = Job's title
 employer.application.form.label.job.reference = Job's reference
 employer.application.form.label.worker.userAccount.username = Worker's username
+employer.application.form.label.justification = Status justification
 
 employer.application.form.button.return = Return
+employer.application.form.button.reject = Reject
+employer.application.form.button.accept = Accept
+
+employer.application.error.need-justification = For rejecting it's needed a justification
+employer.application.error.must-be-pending = Status must be pending to be accepted or rejected
