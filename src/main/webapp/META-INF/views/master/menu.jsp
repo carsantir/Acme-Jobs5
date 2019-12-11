@@ -41,6 +41,7 @@
 			<acme:menu-suboption code="master.menu.administrator.announcements" action="/administrator/announcement/list"/>
      		<acme:menu-suboption code="master.menu.administrator.announcements.create" action="/administrator/announcement/create"/>
      		<acme:menu-suboption code="master.menu.administrator.challenges" action="/administrator/challenge/list"/>
+     		<acme:menu-suboption code="master.menu.administrator.auditor" action="/administrator/auditor/list"/>
      		<acme:menu-suboption code="master.menu.administrator.challenges.create" action="/administrator/challenge/create"/>
 			<acme:menu-suboption code="master.menu.administrator.investor-record" action="/administrator/investor-record/list"/>
 			<acme:menu-suboption code="master.menu.administrator.investor-record.create" action="/administrator/investor-record/create"/>
@@ -98,6 +99,8 @@
 			<acme:menu-suboption code="master.menu.user-account.employer" action="/authenticated/employer/update" access="hasRole('Employer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-worker" action="/authenticated/worker/create" access="!hasRole('Worker')"/>
 			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update" access="hasRole('Worker')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>

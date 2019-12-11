@@ -27,7 +27,18 @@ public class AuditorJobListNotWrittenService implements AbstractListService<Audi
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		Principal principal;
+		int idPrincipal;
+		principal = request.getPrincipal();
+		idPrincipal = principal.getActiveRoleId();
+
+		Collection<Integer> idNotEnabled = this.repository.findOneAuditorByEnabled();
+
+		if (idNotEnabled.contains(idPrincipal)) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 	@Override
 	public void unbind(final Request<Job> request, final Job entity, final Model model) {
