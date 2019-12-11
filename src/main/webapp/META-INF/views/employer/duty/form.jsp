@@ -25,12 +25,12 @@
 	</jstl:if>
 	
 	<jstl:if test="${command == 'create' }">
-		<acme:form-hidden path="job"/>
+		<acme:form-hidden path="job.id" />
 	</jstl:if>
 	
-	<acme:form-submit test="${command == 'create' }"
+	<acme:form-submit test="${command == 'create'}"
 		code="employer.duty.form.button.create"
-		action="/employer/duty/create?jobId=${job.id}"/>
+		action="/employer/duty/create"/>
 		
 	<acme:form-return code="employer.duty.form.button.return"/>
 </acme:form>

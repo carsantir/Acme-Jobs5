@@ -20,3 +20,7 @@ employer.duty.form.label.job.reference=Trabajo del que procede
 
 employer.duty.form.button.create=Crear
 employer.duty.form.button.return=Volver
+
+employer.duty.error.spam=El texto supera el número de palabras spam permitidas
+employer.duty.error.up-to-hundred=La suma de los porcentajes de los deberes deben ser menor o igual a 100
+employer.duty.error.more-than-cero=El porcentaje debe ser mayor a cero

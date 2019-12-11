@@ -20,3 +20,7 @@ employer.duty.form.label.job.reference=Job which contains it
 
 employer.duty.form.button.create=Create
 employer.duty.form.button.return=Return
+
+employer.duty.error.spam=The text contains more spam words than allowed
+employer.duty.error.up-to-hundred=Percentage of all duties from one job must be less or equal 100
+employer.duty.error.more-than-cero=Percentage must be more than cero
