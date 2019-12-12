@@ -30,14 +30,14 @@
 	<acme:form-submit test="${command == 'show'}"
 		code="employer.application.form.button.reject" 
 		action="/employer/application/update-reject"/>
-	<acme:form-submit test="${command == 'reject'}"
+	<acme:form-submit test="${command == 'update-reject'}"
 		code="employer.application.form.button.reject" 
 		action="/employer/application/update-reject"/>
 		
 	<acme:form-submit test="${command == 'show'}"
 		code="employer.application.form.button.accept" 
 		action="/employer/application/update-accept"/>
-	<acme:form-submit test="${command == 'accept'}"
+	<acme:form-submit test="${command == 'update-accept'}"
 		code="employer.application.form.button.accept" 
 		action="/employer/application/update-accept"/>
 	
