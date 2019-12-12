@@ -26,8 +26,10 @@ employer.job.form.label.username=Employer
 employer.job.form.button.link=List audit records
 employer.job.form.button.create.duty=Create duty
 employer.job.form.button.create=Create
+employer.job.form.button.delete=Delete
 
 employer.job.error.workload=For saving a job as published its duties percentage must sum up 100%
 employer.job.error.spam=The text contains more spam words than allowed
 employer.job.error.future=Deadline must be future
 employer.job.error.must-be-euro = Reward currency must be € or EUR (which represents the euro currency)
+employer.job.error.deleteCheckbox=You must confirm that you deleted the linked duties
