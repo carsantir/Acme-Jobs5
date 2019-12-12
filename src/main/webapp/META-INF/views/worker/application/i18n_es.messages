@@ -25,5 +25,6 @@ worker.application.list.label.moment = Fecha de creación
 worker.application.list.label.status = Estado
 worker.application.list.label.job.reference = Referencia del trabajo
 worker.application.list.label.worker.userAccount.username = Usuario del trabajador
+worker.application.form.label.justification = Justificación del estado
 
 worker.application.form.button.return = Volver

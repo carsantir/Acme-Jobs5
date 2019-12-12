@@ -6,17 +6,19 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Application;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.Status;
 import acme.entities.roles.Employer;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class EmployerApplicationShowService implements AbstractShowService<Employer, Application> {
+public class EmployerApplicationAcceptService implements AbstractUpdateService<Employer, Application> {
 
 	@Autowired
-	private EmployerApplicationRepository repository;
+	EmployerApplicationRepository repository;
 
 
 	@Override
@@ -41,13 +43,21 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 	}
 
 	@Override
+	public void bind(final Request<Application> request, final Application entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "statement");
+	}
+
+	@Override
 	public void unbind(final Request<Application> request, final Application entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "referenceNumber", "moment", "status", "statement", "skills", "qualifications", "job.title", "job.reference", "worker.userAccount.username", "justification");
-
+		request.unbind(entity, model, "referenceNumber", "moment", "status", "skills", "qualifications", "job.title", "job.reference", "worker.userAccount.username", "justification");
 	}
 
 	@Override
@@ -59,7 +69,26 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneApplicationById(id);
+
 		return result;
+	}
+
+	@Override
+	public void validate(final Request<Application> request, final Application entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		errors.state(request, entity.getStatus().equals(Status.PENDING), "status", "employer.application.error.must-be-pending");
+	}
+
+	@Override
+	public void update(final Request<Application> request, final Application entity) {
+		assert request != null;
+		assert entity != null;
+
+		entity.setStatus(Status.ACCEPTED);
+		this.repository.save(entity);
 	}
 
 }

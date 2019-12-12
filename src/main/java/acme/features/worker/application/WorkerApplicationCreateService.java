@@ -34,7 +34,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment");
+		request.bind(entity, errors, "moment", "justification");
 
 	}
 
@@ -72,6 +72,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		result.setWorker(worker);
 
 		result.setStatus(Status.PENDING);
+		result.setJustification(null);
 
 		return result;
 	}
