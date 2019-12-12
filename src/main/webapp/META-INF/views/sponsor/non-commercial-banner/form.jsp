@@ -20,10 +20,14 @@
 	<acme:form-url code="sponsor.non-commercial-banner.form.label.targetUrl" path="targetUrl" />
 	<acme:form-textbox code="sponsor.non-commercial-banner.form.label.jingle" path="jingle" />
 	<acme:form-textbox code="sponsor.non-commercial-banner.form.label.slogan" path="slogan" />		
-   	<acme:form-textbox code="sponsor.non-commercial-banner.form.label.sponsor.organisationName" path="sponsor.organisationName" />
-   	<acme:form-textbox code="sponsor.non-commercial-banner.form.label.sponsor.userAccount.username" path="sponsor.userAccount.username" />
+   
+   	<jstl:if test="${command != 'create'}">	
+	<acme:form-textbox code="sponsor.non-commercial-banner.form.label.sponsor.userAccount.username" path="sponsor.userAccount.username" />
+	<acme:form-textbox code="sponsor.non-commercial-banner.form.label.sponsor.organisationName" path="sponsor.organisationName" />
+	</jstl:if>
+		<acme:form-submit test="${command == 'create'}"
+		code="sponsor.noncommercial-banner.form.button.create"
+		action="/sponsor/non-commercial-banner/create"/>
    	
-	
-			
-  	<acme:form-return code="sponsor.non-commercial-banner.form.button.return"/>
+   	<acme:form-return code="sponsor.non-commercial-banner.form.button.return"/>
 </acme:form>
