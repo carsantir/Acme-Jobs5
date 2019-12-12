@@ -26,6 +26,7 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
+        `justification` varchar(255),
         `moment` datetime(6),
         `qualifications` varchar(255),
         `reference_number` varchar(255),
@@ -274,13 +275,14 @@
 
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
+create index IDX4w2ddk7vl2liqfme8wkfw6jx1 on `application` (`job_id`, `status` asc, `moment` desc);
 
     alter table `application` 
        add constraint UK_rf84q38qr35ymh5nn0dcxfdue unique (`reference_number`);
 create index IDXnr284tes3x8hnd3h716tmb3fr on `challenge` (`deadline`);
 create index IDX9pkce3d1y6w47wadap5s5xptc on `company_record` (`stars`);
 create index IDXk2t3uthe649ao1jllcuks0gv4 on `investor_record` (`stars`);
-create index IDXfdmpnr8o4phmk81sqsano16r on `job` (`deadline`);
+create index IDXl51nhj8ltm6syl39cx1vp1ad9 on `job` (`reference`, `deadline`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
