@@ -37,7 +37,7 @@ public class EmployerApplicationAcceptService implements AbstractUpdateService<E
 		job = this.repository.findOneJobById(application.getJob().getId());
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId() && application.getStatus() == Status.PENDING;
 
 		return result;
 	}
@@ -79,7 +79,6 @@ public class EmployerApplicationAcceptService implements AbstractUpdateService<E
 		assert entity != null;
 		assert errors != null;
 
-		errors.state(request, entity.getStatus().equals(Status.PENDING), "status", "employer.application.error.must-be-pending");
 	}
 
 	@Override

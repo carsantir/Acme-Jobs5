@@ -24,8 +24,8 @@
 	<acme:form-textarea code="employer.job.form.label.description" path="description" />
 	<jstl:if test="${command != 'create'}">
 		<acme:form-textbox code="employer.job.form.label.username" path="employer.userAccount.username" />
+		<acme:form-checkbox code="employer.job.form.label.draft" path="draft" />
 	</jstl:if>
-	<acme:form-checkbox code="employer.job.form.label.draft" path="draft" />
 	<acme:form-hidden path="id"/>
 	<jstl:if test="${command != 'create'}">
 		<acme:form-submit code="employer.job.form.label.duty" action="/employer/duty/list?id=${id}" method="get"/>

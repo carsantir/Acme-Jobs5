@@ -102,41 +102,6 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		boolean titleSpam, descriptionSpam;
-
-		String spamWords = this.repository.findConfigurationParameters().stream().findFirst().get().getSpamWords();
-		Double threshold = this.repository.findConfigurationParameters().stream().findFirst().get().getSpamThreshold();
-
-		String[] spamArray = spamWords.toLowerCase().split(",");
-
-		double numSpamTitle = 0;
-		double numSpamDescription = 0;
-
-		String title = entity.getTitle().toLowerCase();
-		String description = entity.getDescription().toLowerCase();
-
-		if (entity.getTitle() != null && entity.getDescription() != null) {
-			for (String element : spamArray) {
-
-				while (title.indexOf(element) > -1) {
-					title = title.substring(title.indexOf(element) + element.length(), title.length());
-					numSpamTitle++;
-				}
-
-				while (description.indexOf(element) > -1) {
-					description = description.substring(description.indexOf(element) + element.length(), description.length());
-					numSpamDescription++;
-				}
-			}
-
-			titleSpam = numSpamTitle / entity.getTitle().split(" ").length < threshold;
-			errors.state(request, titleSpam, "title", "employer.duty.error.spam");
-
-			descriptionSpam = numSpamDescription / entity.getDescription().split(" ").length < threshold;
-			errors.state(request, descriptionSpam, "description", "employer.duty.error.spam");
-
-		}
-
 		Job job;
 
 		int id;
