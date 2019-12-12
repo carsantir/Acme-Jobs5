@@ -8,11 +8,5 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.messageThread.list.label.title = Título del hilo
-authenticated.messageThread.list.label.moment = Fecha de creación 
-
-authenticated.messageThread.form.label.title = Título del hilo
-authenticated.messageThread.form.label.moment = Fecha de creación
-authenticated.messageThread.form.label.messages = Mensajes del hilo
-authenticated.messageThread.form.button.return = Volver
-authenticated.messageThread.form.button.users = Usuarios involucrados
+authenticated.involved.list.label.userAccount.username = Nombre de usuario de autenticado involucrado
+authenticated.involved.list.button.return = Volver
