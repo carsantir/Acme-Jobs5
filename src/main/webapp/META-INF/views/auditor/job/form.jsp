@@ -27,6 +27,7 @@
 	<acme:form-hidden path="id"/>
 	<acme:form-submit code="auditor.job.form.label.duty" action="/auditor/duty/list?id=${id}" method="get"/>
 	<acme:form-submit code="auditor.job.form.button.link" action="/auditor/audit-record/list?id=${id}" method="get" />
+	<acme:form-submit code="auditor.job.form.button.write" action="/auditor/audit-record/create?jobId=${id}" method="get" />
 	
 	<acme:form-return code="auditor.job.form.button.return"/>
 </acme:form>
