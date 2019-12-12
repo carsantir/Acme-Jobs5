@@ -1,6 +1,7 @@
 
 package acme.features.auditor.auditRecord;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,23 @@ public class AuditorAuditRecordCreateService implements AbstractCreateService<Au
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return true;
+
+		boolean result;
+		int jobId;
+		Job job;
+
+		String url = request.getServletRequest().getQueryString();
+		if (url != null) {
+			String[] aux = url.split("jobId=");
+			jobId = Integer.parseInt(aux[1]);
+			job = this.repository.findOneJobById(jobId);
+		} else {
+			job = this.repository.findOneJobById(request.getModel().getInteger("job.id"));
+		}
+
+		result = !job.isDraft() && job.getDeadline().after(Calendar.getInstance().getTime());
+
+		return result;
 	}
 
 	@Override
