@@ -312,14 +312,14 @@
 	<bean name="duty1job1" class="acme.entities.jobs.Duty">
 		<property name="title" value="Duty One From Job One"/>
 		<property name="description" value="Duty One from Job One"/>
-		<property name="percentage" value="90"/>
+		<property name="percentage" value="10"/>
 		<property name="job" ref="job1" />
 	</bean>
 	
 	<bean name="duty2job1" class="acme.entities.jobs.Duty">
 		<property name="title" value="Duty Two From Job One"/>
 		<property name="description" value="Duty Two from Job One"/>
-		<property name="percentage" value="80"/>
+		<property name="percentage" value="40"/>
 		<property name="job" ref="job1" />
 	</bean>
 	
@@ -368,14 +368,14 @@
 		<bean name="duty1job2" class="acme.entities.jobs.Duty">
 		<property name="title" value="Duty One from Job Two"/>
 		<property name="description" value="Duty One from Job Two"/>
-		<property name="percentage" value="80"/>
+		<property name="percentage" value="30"/>
 		<property name="job" ref="job2" />
 	</bean>
 	
 	<bean name="duty2job2" class="acme.entities.jobs.Duty">
 		<property name="title" value="Duty Two from Job Two"/>
 		<property name="description" value="Duty Two from Job Two"/>
-		<property name="percentage" value="70"/>
+		<property name="percentage" value="60"/>
 		<property name="job" ref="job2" />
 	</bean>
 	
@@ -420,7 +420,7 @@
 		<bean name="duty1job4" class="acme.entities.jobs.Duty">
 		<property name="title" value="Duty One from Job Four"/>
 		<property name="description" value="Duty One from Job Four"/>
-		<property name="percentage" value="80"/>
+		<property name="percentage" value="20"/>
 		<property name="job" ref="job4" />
 	</bean>
 	
