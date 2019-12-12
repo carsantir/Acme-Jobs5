@@ -12,7 +12,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedAuthenticatedRepository extends AbstractRepository {
 
-	@Query("select a from Authenticated a where a.id in (select m.authenticated.id from Message m where m.messageThread.id = ?1)")
-	Collection<Authenticated> findMessageThreadByUserId(int id);
+	@Query("select a from Authenticated a where a.id in (select cp.authenticated.id from CanParticipate cp where cp.messageThread.id=?1)")
+	Collection<Authenticated> findAuthenticatedInvolved(int id);
+
+	@Query("select a from Authenticated a where a.id = (select mt.authenticated.id from MessageThread mt where mt.id = ?1)")
+	Authenticated findAuthorMessageThread(int id);
 
 }

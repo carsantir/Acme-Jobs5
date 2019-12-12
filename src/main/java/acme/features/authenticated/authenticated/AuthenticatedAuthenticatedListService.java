@@ -22,7 +22,14 @@ public class AuthenticatedAuthenticatedListService implements AbstractListServic
 	public boolean authorise(final Request<Authenticated> request) {
 		assert request != null;
 
-		return true;
+		int id;
+
+		String[] aux = request.getServletRequest().getQueryString().trim().split("mtId=");
+		id = Integer.parseInt(aux[1]);
+
+		Authenticated creator = this.repository.findAuthorMessageThread(id);
+
+		return creator.getId() == request.getPrincipal().getActiveRoleId();
 	}
 	@Override
 	public void unbind(final Request<Authenticated> request, final Authenticated entity, final Model model) {
@@ -41,7 +48,7 @@ public class AuthenticatedAuthenticatedListService implements AbstractListServic
 		String[] aux = request.getServletRequest().getQueryString().trim().split("mtId=");
 		id = Integer.parseInt(aux[1]);
 
-		result = this.repository.findMessageThreadByUserId(id);
+		result = this.repository.findAuthenticatedInvolved(id);
 
 		return result;
 	}
