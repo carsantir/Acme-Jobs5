@@ -80,6 +80,9 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
+		Collection<Application> applications = this.repository.findApplicationsFromJob(entity.getId());
+		errors.state(request, applications.isEmpty(), "apps", "employer.job.error.apps");
+
 	}
 
 	@Override
@@ -88,11 +91,9 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 
 		Collection<Duty> jobDuties = this.repository.findDutiesFromJob(entity.getId());
-		Collection<Application> jobApplications = this.repository.findApplicationsFromJob(entity.getId());
 		Collection<AuditRecord> jobAuditRecords = this.repository.findAuditRecordsFromJob(entity.getId());
 
 		this.repository.deleteAll(jobDuties);
-		this.repository.deleteAll(jobApplications);
 		this.repository.deleteAll(jobAuditRecords);
 		this.repository.delete(entity);
 	}

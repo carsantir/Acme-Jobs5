@@ -20,6 +20,7 @@ employer.duty.form.label.job.reference=Trabajo del que procede
 
 employer.duty.form.button.create=Crear
 employer.duty.form.button.delete=Borrar
+employer.duty.form.button.update=Modificar
 employer.duty.form.button.return=Volver
 
 employer.duty.error.spam=El texto supera el número de palabras spam permitidas
