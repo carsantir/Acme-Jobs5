@@ -104,7 +104,9 @@ master.menu.auditor.features.job.list = Listar trabajos que contienen mis regist
 
 master.menu.sponsor = Patrocinador
 master.menu.sponsor.commercial-banner.list-mine = Listar estandartes comerciales
+master.menu.sponsor.commercial-banner.create=Crear estandartes comerciales
 master.menu.sponsor.non-commercial-banner.list-mine = Listar mis estandartes no comerciales
+master.menu.sponsor.non-commercial-banner.create=Crear estandartes no comerciales
 
 # master.menu.user-account ####################################################
 
