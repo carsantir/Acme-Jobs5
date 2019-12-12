@@ -50,8 +50,6 @@ public class AuditorJobListWrittenService implements AbstractListService<Auditor
 		Date fechaActual = actual.getTime();
 		result = this.repository.findManyByEmployerId(principal.getActiveRoleId(), fechaActual);
 
-		result.stream().forEach(j -> j.setEmployer(this.repository.findEmployer(j.getId())));
-
 		return result;
 	}
 }

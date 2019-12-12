@@ -18,10 +18,21 @@
 <acme:form>
 
 	<acme:form-textbox code="auditor.audit-record.form.label.title" path="title" />
-	<acme:form-moment code="auditor.audit-record.form.label.moment" path="moment" />
 	<acme:form-textbox code="auditor.audit-record.form.label.body" path="body" />
 	<acme:form-checkbox code="auditor.audit-record.form.label.draft" path="draft" />
-	<acme:form-textarea code="auditor.audit-record.form.label.job" path="job.title" />
+	
+	<jstl:if test="${command != 'create'}">
+	<acme:form-moment code="auditor.audit-record.form.label.moment" path="moment" readonly="true" />
+	<acme:form-textarea code="auditor.audit-record.form.label.job" path="job.title" readonly="true" />
+	</jstl:if>
+	
+	<jstl:if test="${command == 'create'}">
+		<acme:form-hidden path="job.id" />
+	</jstl:if>
+	
+	<acme:form-submit test="${command == 'create'}"
+		code="auditor.audit-record.form.button.create"
+		action="/auditor/audit-record/create"/>
 	
 	<acme:form-return code="auditor.audit-record.form.button.return"/>
 </acme:form>

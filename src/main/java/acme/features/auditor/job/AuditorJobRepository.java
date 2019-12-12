@@ -20,7 +20,7 @@ public interface AuditorJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.id not in (select ar.job.id from AuditRecord ar where ar.auditor.id=?1) and j.draft=0 and j.deadline>?2")
 	Collection<Job> findManyByAuditorId(int auditorId, Date date);
 
-	@Query("select j from Job j join AuditRecord ar on ar.job.id=j.id where ar.auditor.id=?1 and j.deadline>?2 and j.draft=false")
+	@Query("select j from Job j where j.id in (select ar.job.id from AuditRecord ar where ar.auditor.id=?1) and j.draft=0 and j.deadline>?2")
 	Collection<Job> findManyByEmployerId(int auditorId, Date date);
 
 	@Query("select e from Employer e where e.id= (select j.employer.id from Job j where j.id=?1)")

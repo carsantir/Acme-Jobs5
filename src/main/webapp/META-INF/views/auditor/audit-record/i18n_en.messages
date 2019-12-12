@@ -18,5 +18,6 @@ auditor.audit-record.form.label.moment=Moment
 auditor.audit-record.form.label.body=Body
 auditor.audit-record.form.label.draft=Is Draft?
 auditor.audit-record.form.label.job=Job title
+auditor.audit-record.form.button.create = Create
 	
 auditor.audit-record.form.button.return=Return

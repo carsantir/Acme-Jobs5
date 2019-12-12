@@ -25,3 +25,4 @@ auditor.job.form.label.draft=Is draft?
 auditor.job.form.button.link = List audit records
 auditor.job.form.label.employer=Employer
 auditor.job.form.label.duty=View duties
+auditor.job.form.button.write = Write audit record

@@ -25,3 +25,4 @@ auditor.job.form.label.draft=¿Es un borrador?
 auditor.job.form.button.link = Listar registros de auditoría
 auditor.job.form.label.employer=Empleador
 auditor.job.form.label.duty=Ver deberes
+auditor.job.form.button.write = Escribir registro de auditoría
