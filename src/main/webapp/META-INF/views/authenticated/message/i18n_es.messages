@@ -24,3 +24,6 @@ authenticated.message.form.label.checkbox=Confirmar mensaje
 
 authenticated.message.form.button.create=Crear
 authenticated.message.form.button.return = Volver
+
+authenticated.message.error.checkbox=Debes confirmar la creación
+authenticated.message.error.spam=El texto supera el número de palabras spam permitidas

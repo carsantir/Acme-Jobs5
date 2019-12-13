@@ -24,3 +24,6 @@ authenticated.message.form.label.checkbox=Confirm message
 
 authenticated.message.form.button.create=Create
 authenticated.message.form.button.return = Return
+
+authenticated.message.error.checkbox=You must confirm the creation
+authenticated.message.error.spam=The text contains more spam words than allowed

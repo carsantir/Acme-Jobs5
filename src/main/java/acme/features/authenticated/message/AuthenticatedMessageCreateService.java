@@ -98,7 +98,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		boolean isAccepted;
 
 		isAccepted = request.getModel().getBoolean("checkbox");
-		errors.state(request, isAccepted, "checkbox", "consumer.offer.error.checkbox");
+		errors.state(request, isAccepted, "checkbox", "authenticated.message.error.checkbox");
 
 		boolean titleSpam, tagsSpam, bodySpam;
 
