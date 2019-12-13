@@ -1,6 +1,7 @@
 
 package acme.features.worker.application;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,24 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		return true;
+
+		boolean result;
+		int id;
+		Job job;
+
+		String url = request.getServletRequest().getQueryString();
+
+		if (url != null) {
+			String[] aux = url.split("jobId=");
+			id = Integer.parseInt(aux[1]);
+			job = this.repository.findOneJobById(id);
+		} else {
+			job = this.repository.findOneJobById(request.getModel().getInteger("job.id"));
+		}
+
+		result = !job.isDraft() && job.getDeadline().after(Calendar.getInstance().getTime());
+
+		return result;
 	}
 
 	@Override
@@ -97,5 +115,21 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		this.repository.save(entity);
 
 	}
+
+	/*
+	 * public void onSuccess(final Request<Application> request, final Response<Application> response) {
+	 * assert request != null;
+	 * assert response != null;
+	 *
+	 * String url = "./list-mine";
+	 *
+	 * try {
+	 * request.getServletResponse().sendRedirect(url);
+	 * } catch (IOException e) {
+	 * e.printStackTrace();
+	 * }
+	 *
+	 * }
+	 */
 
 }

@@ -8,11 +8,9 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.messageThread.list.label.title = Título del hilo
-authenticated.messageThread.list.label.moment = Fecha de creación 
+authenticated.sponsor.form.label.organisationName=Nombre de la organización
+authenticated.sponsor.form.label.creditCard=Tarjeta de crédito
+authenticated.sponsor.form.button.create=Registrar
+authenticated.sponsor.form.button.update=Actualizar
 
-authenticated.messageThread.form.label.title = Título del hilo
-authenticated.messageThread.form.label.moment = Fecha de creación
-authenticated.messageThread.form.label.messages = Mensajes del hilo
-authenticated.messageThread.form.button.return = Volver
-authenticated.messageThread.form.button.users = Usuarios involucrados
+authenticated.sponsor.form.button.return=Volver

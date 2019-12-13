@@ -1,10 +1,10 @@
 
-package acme.features.authenticated.employer;
+package acme.features.authenticated.sponsor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Employer;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -17,18 +17,18 @@ import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AuthenticatedEmployerCreateService implements AbstractCreateService<Authenticated, Employer> {
+public class AuthenticatedSponsorCreateService implements AbstractCreateService<Authenticated, Sponsor> {
 
 	@Autowired
-	private AuthenticatedEmployerRepository repository;
+	private AuthenticatedSponsorRepository repository;
 
 
 	@Override
-	public boolean authorise(final Request<Employer> request) {
+	public boolean authorise(final Request<Sponsor> request) {
 		assert request != null;
 		Principal principal;
 		principal = request.getPrincipal();
-		Employer e = this.repository.findOneEmployerByUserAccountId(principal.getAccountId());
+		Sponsor e = this.repository.findOneSponsorByUserAccountId(principal.getAccountId());
 		if (e == null) {
 			return true;
 		} else {
@@ -37,7 +37,7 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public void bind(final Request<Employer> request, final Employer entity, final Errors errors) {
+	public void bind(final Request<Sponsor> request, final Sponsor entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -47,20 +47,20 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public void unbind(final Request<Employer> request, final Employer entity, final Model model) {
+	public void unbind(final Request<Sponsor> request, final Sponsor entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "company", "sector");
+		request.unbind(entity, model, "organisationName", "creditCard");
 
 	}
 
 	@Override
-	public Employer instantiate(final Request<Employer> request) {
+	public Sponsor instantiate(final Request<Sponsor> request) {
 		assert request != null;
 
-		Employer result;
+		Sponsor result;
 		Principal principal;
 		int userAccountId;
 		UserAccount userAccount;
@@ -69,14 +69,14 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 		userAccountId = principal.getAccountId();
 		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		result = new Employer();
+		result = new Sponsor();
 		result.setUserAccount(userAccount);
 
 		return result;
 	}
 
 	@Override
-	public void validate(final Request<Employer> request, final Employer entity, final Errors errors) {
+	public void validate(final Request<Sponsor> request, final Sponsor entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -84,7 +84,7 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public void create(final Request<Employer> request, final Employer entity) {
+	public void create(final Request<Sponsor> request, final Sponsor entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -92,7 +92,7 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 
 	}
 	@Override
-	public void onSuccess(final Request<Employer> request, final Response<Employer> response) {
+	public void onSuccess(final Request<Sponsor> request, final Response<Sponsor> response) {
 		assert request != null;
 		assert response != null;
 

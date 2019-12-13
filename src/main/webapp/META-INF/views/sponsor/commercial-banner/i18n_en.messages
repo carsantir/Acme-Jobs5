@@ -19,4 +19,7 @@ sponsor.commercial-banner.form.label.targetUrl = Target Url
 sponsor.commercial-banner.form.label.creditCard= Credit Card
 sponsor.commercial-banner.form.label.sponsor.userAccount.username= Sponsor
 
+sponsor.commercial-banner.form.button.create=Create
 sponsor.commercial-banner.form.button.return = Return
+
+sponsor.commercialbanner.error.spam=The text contains more spam words than allowed

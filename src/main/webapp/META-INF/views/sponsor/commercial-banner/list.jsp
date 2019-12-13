@@ -21,4 +21,5 @@
 	<acme:list-column code="sponsor.commercial-banner.list.label.slogan" path="slogan" width="20%" />
 	<acme:list-column code="sponsor.commercial-banner.list.label.creditCard" path="creditCard" width="20%" />
 	<acme:list-column code="sponsor.commercial-banner.list.label.sponsor.userAccount.username" path="sponsor.userAccount.username" width="20%"/>
+	
 </acme:list>

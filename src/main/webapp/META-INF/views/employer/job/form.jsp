@@ -25,8 +25,10 @@
 	<jstl:if test="${command == 'show'}">
 		<acme:form-textbox code="employer.job.form.label.username" path="employer.userAccount.username" readonly="true"/>
 	</jstl:if>
-	<acme:form-checkbox code="employer.job.form.label.draft" path="draft" />
-	
+  <jstl:if test="${command != 'create'}">
+	  <acme:form-checkbox code="employer.job.form.label.draft" path="draft" />
+	</jstl:if>
+
 	<jstl:if test="${command == 'delete'}">
 		<acme:form-errors path="apps"/>
 	</jstl:if>

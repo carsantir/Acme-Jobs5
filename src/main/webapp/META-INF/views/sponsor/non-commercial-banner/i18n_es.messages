@@ -20,3 +20,6 @@ sponsor.non-commercial-banner.form.label.slogan = Eslogan
 sponsor.non-commercial-banner.form.label.sponsor.organisationName = Nombre de organización
 sponsor.non-commercial-banner.form.label.sponsor.userAccount.username = Usuario de patrocinador
 sponsor.non-commercial-banner.form.button.return = Volver
+sponsor.noncommercial-banner.form.button.create=Crear
+
+sponsor.noncommercialbanner.error.spam=El texto supera el número de palabras spam permitidas

@@ -23,11 +23,15 @@ public class SponsorNonCommercialBannerController extends AbstractController<Spo
 	@Autowired
 	private SponsorNonCommercialBannerShowService		showService;
 
+	@Autowired
+	private SponsorNonCommercialBannerCreateService		createService;
+
 
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }

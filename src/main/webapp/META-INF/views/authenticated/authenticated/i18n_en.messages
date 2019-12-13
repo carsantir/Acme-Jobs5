@@ -8,11 +8,5 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.messageThread.list.label.title = Thread's title
-authenticated.messageThread.list.label.moment = Creation moment
-
-authenticated.messageThread.form.label.title = Thread's title
-authenticated.messageThread.form.label.moment = Creation moment
-authenticated.messageThread.form.label.messages = Thread's messages
-authenticated.messageThread.form.button.return = Return
-authenticated.messageThread.form.button.users = Users involved
+authenticated.involved.list.label.userAccount.username = Authenticated involved username
+authenticated.involved.list.button.return = Return

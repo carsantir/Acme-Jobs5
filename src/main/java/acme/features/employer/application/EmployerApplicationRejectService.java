@@ -36,7 +36,7 @@ public class EmployerApplicationRejectService implements AbstractUpdateService<E
 		job = this.repository.findOneJobById(application.getJob().getId());
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = employer.getUserAccount().getId() == principal.getAccountId();
+		result = employer.getUserAccount().getId() == principal.getAccountId() && application.getStatus() == Status.PENDING;
 
 		return result;
 	}
@@ -81,7 +81,6 @@ public class EmployerApplicationRejectService implements AbstractUpdateService<E
 		boolean isEmpty = entity.getJustification().isEmpty();
 		errors.state(request, !isEmpty && entity.getJustification() != null, "justification", "employer.application.error.need-justification");
 
-		errors.state(request, entity.getStatus().equals(Status.PENDING), "status", "employer.application.error.must-be-pending");
 	}
 
 	@Override

@@ -27,14 +27,14 @@
 	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.worker.userAccount.username" path="worker.userAccount.username" readonly="true"/>
 	
-	<acme:form-submit test="${command == 'show'}"
+	<acme:form-submit test="${command == 'show' && status == 'PENDING'}"
 		code="employer.application.form.button.reject" 
 		action="/employer/application/update-reject"/>
 	<acme:form-submit test="${command == 'update-reject'}"
 		code="employer.application.form.button.reject" 
 		action="/employer/application/update-reject"/>
 		
-	<acme:form-submit test="${command == 'show'}"
+	<acme:form-submit test="${command == 'show'&& status == 'PENDING'}"
 		code="employer.application.form.button.accept" 
 		action="/employer/application/update-accept"/>
 	<acme:form-submit test="${command == 'update-accept'}"

@@ -85,7 +85,9 @@
 		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
       		<acme:menu-suboption code="master.menu.sponsor.commercial-banner.list-mine" action="/sponsor/commercial-banner/list-mine"/>
+      		<acme:menu-suboption code="master.menu.sponsor.commercial-banner.create" action="/sponsor/commercial-banner/create"/>
       		<acme:menu-suboption code="master.menu.sponsor.non-commercial-banner.list-mine" action="/sponsor/non-commercial-banner/list-mine"/>
+      		<acme:menu-suboption code="master.menu.sponsor.non-commercial-banner.create" action="/sponsor/non-commercial-banner/create"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>
@@ -102,6 +104,8 @@
 			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update" access="hasRole('Worker')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
 			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" access="!hasRole('Sponsor')"/>
+			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
