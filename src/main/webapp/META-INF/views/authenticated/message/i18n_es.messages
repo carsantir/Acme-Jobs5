@@ -20,4 +20,10 @@ authenticated.message.form.label.tags = Etiquetas
 authenticated.message.form.label.body = Cuerpo del mensaje
 authenticated.message.form.label.userAccount.username = Usuario
 authenticated.message.form.label.messageThread.title = Título del hilo
+authenticated.message.form.label.checkbox=Confirmar mensaje
+
+authenticated.message.form.button.create=Crear
 authenticated.message.form.button.return = Volver
+
+authenticated.message.error.checkbox=Debes confirmar la creación
+authenticated.message.error.spam=El texto supera el número de palabras spam permitidas

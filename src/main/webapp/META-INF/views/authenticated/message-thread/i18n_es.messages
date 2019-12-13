@@ -17,3 +17,4 @@ authenticated.messageThread.form.label.messages = Mensajes del hilo
 authenticated.messageThread.form.button.return = Volver
 authenticated.messageThread.form.button.users = Usuarios involucrados
 authenticated.messageThread.form.button.notusers = Usuarios no involucrados
+authenticated.message.form.button.create=Crear mensaje

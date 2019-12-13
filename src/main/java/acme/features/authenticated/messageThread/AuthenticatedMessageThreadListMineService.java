@@ -39,7 +39,7 @@ public class AuthenticatedMessageThreadListMineService implements AbstractListSe
 		Collection<MessageThread> result;
 
 		int id;
-		id = request.getPrincipal().getAccountId();
+		id = request.getPrincipal().getActiveRoleId();
 		result = this.repository.findMessageThreadByUserId(id);
 
 		return result;

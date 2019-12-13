@@ -20,4 +20,10 @@ authenticated.message.form.label.tags = Tags
 authenticated.message.form.label.body = Message's body
 authenticated.message.form.label.userAccount.username = Username
 authenticated.message.form.label.messageThread.title = Thread's title
+authenticated.message.form.label.checkbox=Confirm message
+
+authenticated.message.form.button.create=Create
 authenticated.message.form.button.return = Return
+
+authenticated.message.error.checkbox=You must confirm the creation
+authenticated.message.error.spam=The text contains more spam words than allowed
