@@ -24,5 +24,6 @@
 </acme:list>
 
 <acme:form readonly="true">
+	
 	<acme:form-return code="authenticated.message.list.button.return"/>
 </acme:form>

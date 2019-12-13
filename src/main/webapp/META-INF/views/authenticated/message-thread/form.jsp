@@ -23,5 +23,8 @@
 			
 	<acme:form-submit code="authenticated.messageThread.form.button.users" action="/authenticated/authenticated/list-involved?mtId=${id}" method="get" />
 	<acme:form-submit code="authenticated.messageThread.form.button.notusers" action="/authenticated/authenticated/list-not-involved?mtId=${id}" method="get" />
+	
+	<acme:form-submit code="authenticated.message.form.button.create"
+		action="/authenticated/message/create?id=${id}" method="get"/>
 	<acme:form-return code="authenticated.messageThread.form.button.return"/>
 </acme:form>
