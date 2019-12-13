@@ -20,9 +20,15 @@
 	<acme:form-textbox code="employer.duty.form.label.description" path="description" />
 	<acme:form-double code="employer.duty.form.label.percentage" path="percentage" />
 	
-	<jstl:if test="${command != 'create' }">
+	<jstl:if test="${command == 'delete'}">
+		<acme:form-hidden path="job.employer.id"/>
+	</jstl:if>
+	
+	<jstl:if test="${command == 'show'}">
 		<acme:form-textbox code="employer.duty.form.label.job.reference" path="job.reference" readonly="true"/>
 	</jstl:if>
+	
+	
 	
 	<jstl:if test="${command == 'create' }">
 		<acme:form-hidden path="job.id" />
@@ -31,6 +37,14 @@
 	<acme:form-submit test="${command == 'create'}"
 		code="employer.duty.form.button.create"
 		action="/employer/duty/create"/>
+		
+	<acme:form-submit test="${command == 'show'}"
+		code="employer.duty.form.button.update"
+		action="/employer/duty/update"/>
+		
+	<acme:form-submit test="${command == 'update'}"
+		code="employer.duty.form.button.update"
+		action="/employer/duty/update"/>
 		
 	<acme:form-submit test="${command == 'show'}"
 		code="employer.duty.form.button.delete"
