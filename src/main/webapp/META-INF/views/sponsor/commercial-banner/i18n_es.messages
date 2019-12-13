@@ -20,6 +20,7 @@ sponsor.commercial-banner.form.label.creditCard= Tarjeta de crédito
 sponsor.commercial-banner.form.label.sponsor.userAccount.username= Patrocinador
 
 sponsor.commercial-banner.form.button.create=Crear
+sponsor.commercial-banner.form.button.delete=Borrar
 sponsor.commercial-banner.form.button.return = Volver
 
 sponsor.commercialbanner.error.spam=El texto supera el número de palabras spam permitidas
