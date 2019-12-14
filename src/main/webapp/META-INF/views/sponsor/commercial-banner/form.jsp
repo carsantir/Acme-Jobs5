@@ -21,10 +21,21 @@
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.targetUrl" path="targetUrl"/>	
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.creditCard" path="creditCard"/>
 	<jstl:if test="${command != 'create'}">	
-	<acme:form-textbox code="sponsor.commercial-banner.form.label.sponsor.userAccount.username" path="sponsor.userAccount.username" />
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.sponsor.userAccount.username" path="sponsor.userAccount.username" readonly="true"/>
 	</jstl:if>
+	
+		<acme:form-submit test="${command == 'show'}"
+		code="sponsor.commercial-banner.form.button.update"
+		action="/sponsor/commercial-banner/update"/>
+		
 		<acme:form-submit test="${command == 'create'}"
 		code="sponsor.commercial-banner.form.button.create"
-		action="/sponsor/commercial-banner/create"/>	
+		action="/sponsor/commercial-banner/create"/>
+		
+		<acme:form-submit test="${command == 'update'}"
+		code="sponsor.commercial-banner.form.button.update"
+		action="/sponsor/commercial-banner/update"/>
+		
+			
 	<acme:form-return code="sponsor.commercial-banner.form.button.return"/>
 </acme:form>
