@@ -16,7 +16,11 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly="true">
-	<acme:form-textbox code="authenticated.messageThread.form.label.username" path="userAccount.username" />		
+	<acme:form-textbox code="authenticated.involved.form.label.username" path="userAccount.username" />		
+	<acme:form-hidden path="messageThread.id"/>
    	
-	<acme:form-return code="authenticated.messageThread.form.button.return"/>
+   	<acme:form-submit code="authenticated.involved.canParticipate.form.button.create"
+		action="/authenticated/can-participate/create?authenticatedId=${id}&messageThreadId=${messageThread.id}" method="get"/>
+   	
+	<acme:form-return code="authenticated.involved.form.button.return"/>
 </acme:form>
