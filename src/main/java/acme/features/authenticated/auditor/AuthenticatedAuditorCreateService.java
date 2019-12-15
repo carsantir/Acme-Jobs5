@@ -73,21 +73,6 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		result = new Auditor();
 		result.setEnabled(false);
 		result.setUserAccount(userAccount);
-		//		result = new Principal();
-		//
-		//		result.setUsername(userAccount.getUsername());
-		//		result.setPassword(userAccount.getPassword());
-		//
-		//		result.setEnabled(userAccount.isEnabled());
-		//
-		//		result.setAuthorities(userAccount.getRoles());
-		//		if (userAccount.isAnonymous()) {
-		//			result.setActiveRole(Anonymous.class);
-		//		} else {
-		//			result.setActiveRole(Authenticated.class);
-		//		}
-		//
-		//		result.setAccountId(userAccount.getId());
 
 		return result;
 	}
