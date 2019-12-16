@@ -43,7 +43,7 @@
 		code="employer.job.form.button.create"
 		action="/employer/job/create"/>
 		
-	<acme:form-submit test="${command == 'show'}"
+	<acme:form-submit test="${command == 'show' && draft}"
 		code="employer.job.form.button.update"
 		action="/employer/job/update"/>
 		

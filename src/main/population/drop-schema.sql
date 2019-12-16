@@ -31,6 +31,14 @@
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
 
+    alter table `can_participate` 
+       drop 
+       foreign key `FKrkgonpeg0783e8kjeltjppjsb`;
+
+    alter table `can_participate` 
+       drop 
+       foreign key `FKi42684g4t4xrm6ivp6q18ko42`;
+
     alter table `commercial_banner` 
        drop 
        foreign key `FKd0k52g7lcacefcp62kb4p9aor`;
@@ -58,6 +66,10 @@
     alter table `message` 
        drop 
        foreign key `FKn5adlx3oqjna7aupm8gwg3fuj`;
+
+    alter table `message_thread` 
+       drop 
+       foreign key `FK9yrslk159nq0ibl6o2rbknum3`;
 
     alter table `non_commercial_banner` 
        drop 
@@ -88,6 +100,8 @@
     drop table if exists `auditor`;
 
     drop table if exists `authenticated`;
+
+    drop table if exists `can_participate`;
 
     drop table if exists `challenge`;
 
