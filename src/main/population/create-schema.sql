@@ -67,6 +67,14 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `can_participate` (
+       `id` integer not null,
+        `version` integer not null,
+        `authenticated_id` integer not null,
+        `message_thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `challenge` (
        `id` integer not null,
         `version` integer not null,
@@ -188,6 +196,7 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
+        `authenticated_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -342,6 +351,16 @@ create index IDXby0pqf12tfiy25u5ckjdjg9lo on `request` (`reward_amount`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `can_participate` 
+       add constraint `FKrkgonpeg0783e8kjeltjppjsb` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
+    alter table `can_participate` 
+       add constraint `FKi42684g4t4xrm6ivp6q18ko42` 
+       foreign key (`message_thread_id`) 
+       references `message_thread` (`id`);
+
     alter table `commercial_banner` 
        add constraint `FKd0k52g7lcacefcp62kb4p9aor` 
        foreign key (`sponsor_id`) 
@@ -376,6 +395,11 @@ create index IDXby0pqf12tfiy25u5ckjdjg9lo on `request` (`reward_amount`);
        add constraint `FKn5adlx3oqjna7aupm8gwg3fuj` 
        foreign key (`message_thread_id`) 
        references `message_thread` (`id`);
+
+    alter table `message_thread` 
+       add constraint `FK9yrslk159nq0ibl6o2rbknum3` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
 
     alter table `non_commercial_banner` 
        add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 

@@ -23,14 +23,17 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
 
+		boolean res;
 		Principal principal;
 		principal = request.getPrincipal();
-		String s = this.repository.findCreditCardBySponsorId(principal.getActiveRoleId());
-		if (s != null) {
-			return true;
+		Sponsor s = this.repository.findCreditCardBySponsorId(principal.getActiveRoleId());
+		if (s.getCreditCard() != null || s.getCreditCard().equals("")) {
+			res = true;
 		} else {
-			return false;
+			res = false;
 		}
+
+		return res;
 	}
 
 	@Override

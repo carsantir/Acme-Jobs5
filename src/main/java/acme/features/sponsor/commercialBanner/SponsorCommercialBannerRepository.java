@@ -20,8 +20,8 @@ public interface SponsorCommercialBannerRepository extends AbstractRepository {
 	@Query("select c from CommercialBanner c where c.sponsor.id=?1")
 	Collection<CommercialBanner> findManyBySponsorId(int sponsorId);
 
-	@Query("select creditCard from Sponsor s where s.id=?1")
-	String findCreditCardBySponsorId(int sponsorId);
+	@Query("select s from Sponsor s where s.id=?1")
+	Sponsor findCreditCardBySponsorId(int sponsorId);
 
 	@Query("select s from Sponsor s where s.id=?1")
 	Sponsor findSponsor(int id);

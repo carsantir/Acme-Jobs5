@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Duty;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -23,7 +24,15 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		int jobId;
+
+		String[] aux = request.getServletRequest().getQueryString().trim().split("id=");
+		jobId = Integer.parseInt(aux[1]);
+
+		Job job = this.repository.findJobById(jobId);
+		Employer employer = job.getEmployer();
+
+		return employer.getId() == request.getPrincipal().getActiveRoleId();
 	}
 	@Override
 	public void unbind(final Request<Duty> request, final Duty entity, final Model model) {

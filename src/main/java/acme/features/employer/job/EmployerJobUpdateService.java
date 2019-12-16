@@ -1,7 +1,9 @@
 
 package acme.features.employer.job;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,9 +81,10 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 		boolean workloadFinal;
 		Collection<Duty> duties = this.repository.findDutiesFromJob(entity.getId());
-
-		workloadFinal = duties.stream().mapToDouble(d -> d.getPercentage()).sum() == 100.00;
-		errors.state(request, workloadFinal, "draft", "employer.job.error.workload");
+		if (!entity.isDraft()) {
+			workloadFinal = duties.stream().mapToDouble(d -> d.getPercentage()).sum() == 100.00;
+			errors.state(request, workloadFinal, "draft", "employer.job.error.workload");
+		}
 
 		// Contar spam de un job
 
@@ -132,6 +135,23 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 				descriptionSpam = numSpamDescription / entity.getDescription().split(" ").length < threshold;
 				errors.state(request, descriptionSpam, "description", "employer.job.error.spam");
 
+			}
+
+			Date deadLineMoment;
+			Boolean isFutureDate;
+
+			deadLineMoment = request.getModel().getDate("deadline");
+
+			if (deadLineMoment != null) {
+				isFutureDate = deadLineMoment.after(Calendar.getInstance().getTime());
+				errors.state(request, isFutureDate, "deadline", "employer.job.error.future");
+			}
+
+			boolean isEuro;
+
+			if (entity.getSalary() != null) {
+				isEuro = entity.getSalary().getCurrency().equals("€") || entity.getSalary().getCurrency().equals("EUR");
+				errors.state(request, isEuro, "salary", "employer.job.error.must-be-euro");
 			}
 
 			// Contar spam en las duties
