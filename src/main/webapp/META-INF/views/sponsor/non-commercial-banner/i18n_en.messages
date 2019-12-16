@@ -19,8 +19,12 @@ sponsor.non-commercial-banner.form.label.jingle = Jingle
 sponsor.non-commercial-banner.form.label.slogan = Slogan
 sponsor.non-commercial-banner.form.label.sponsor.organisationName = Organisation name
 sponsor.non-commercial-banner.form.label.sponsor.userAccount.username = Sponsor's username
+
 sponsor.non-commercial-banner.form.button.return = Return
+
 sponsor.noncommercial-banner.form.button.create = Create
 sponsor.non-commercial-banner.form.button.update = Update
+sponsor.noncommercial-banner.form.button.delete=Delete
+
 
 sponsor.noncommercialbanner.error.spam=The text contains more spam words than allowed

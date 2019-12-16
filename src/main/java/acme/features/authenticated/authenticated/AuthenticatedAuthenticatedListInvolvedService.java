@@ -12,7 +12,7 @@ import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedAuthenticatedListService implements AbstractListService<Authenticated, Authenticated> {
+public class AuthenticatedAuthenticatedListInvolvedService implements AbstractListService<Authenticated, Authenticated> {
 
 	@Autowired
 	AuthenticatedAuthenticatedRepository repository;

@@ -40,7 +40,7 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneMessageThreadById(id);
+		result = this.repository.findOneMessageById(id);
 
 		Authenticated au = this.repository.findAuthenticated(result.getAuthenticated().getId());
 

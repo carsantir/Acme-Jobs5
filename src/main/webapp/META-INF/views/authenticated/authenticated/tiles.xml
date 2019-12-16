@@ -21,5 +21,9 @@
 	<definition name="authenticated/authenticated/list" extends="master">
 		<put-attribute name="body" type="template" value="../authenticated/authenticated/list.jsp" />
 	</definition>
+	
+	<definition name="authenticated/authenticated/form" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/authenticated/form.jsp" />
+	</definition>
 
 </tiles-definitions>

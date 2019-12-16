@@ -16,3 +16,6 @@ authenticated.messageThread.form.label.moment = Fecha de creación
 authenticated.messageThread.form.label.messages = Mensajes del hilo
 authenticated.messageThread.form.button.return = Volver
 authenticated.messageThread.form.button.users = Usuarios involucrados
+authenticated.messageThread.form.button.notusers = Usuarios no involucrados
+authenticated.message.form.button.create=Crear mensaje
+authenticated.messageThread.form.label.create=Crear hilo de mensajes

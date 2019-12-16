@@ -45,6 +45,7 @@ master.menu.features.company-record = Company records
 master.menu.features.investor-record =  Investor records
 master.menu.features.offer = Offers
 master.menu.features.job = Active jobs
+master.menu.features.message-thread.create = Create message thread
 master.menu.features.message-thread = Message threads
 
 # master.menu.administrator ###################################################

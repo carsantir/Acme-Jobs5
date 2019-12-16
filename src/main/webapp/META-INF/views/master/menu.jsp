@@ -34,6 +34,8 @@
 			<acme:menu-suboption code="master.menu.features.investor-record" action="/authenticated/investor-record/list"/>
 			<acme:menu-suboption code="master.menu.features.offer" action="/authenticated/offer/list"/>
 			<acme:menu-suboption code="master.menu.features.job" action="/authenticated/job/list-all-active"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.features.message-thread.create" action="/authenticated/message-thread/create"/>			
 			<acme:menu-suboption code="master.menu.features.message-thread" action="/authenticated/message-thread/list-mine"/>
 		</acme:menu-option>
 

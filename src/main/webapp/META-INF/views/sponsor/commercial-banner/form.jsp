@@ -35,6 +35,13 @@
 		<acme:form-submit test="${command == 'update'}"
 		code="sponsor.commercial-banner.form.button.update"
 		action="/sponsor/commercial-banner/update"/>
+		<acme:form-submit test="${command == 'show'}" 
+			code="sponsor.commercial-banner.form.button.delete" 
+			action="/sponsor/commercial-banner/delete"/>
+  
+		<acme:form-submit test="${command == 'delete'}" 
+			code="sponsor.commercial-banner.form.button.delete" 
+			action="/sponsor/commercial-banner/delete"/>
 		
 			
 	<acme:form-return code="sponsor.commercial-banner.form.button.return"/>

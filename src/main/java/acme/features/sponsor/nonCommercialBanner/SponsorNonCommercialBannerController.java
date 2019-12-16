@@ -25,6 +25,9 @@ public class SponsorNonCommercialBannerController extends AbstractController<Spo
 
 	@Autowired
 	private SponsorNonCommercialBannerCreateService		createService;
+	
+	@Autowired
+	private SponsorNonCommercialBannerDeleteService		deleteService;
 
 	@Autowired
 	private SponsorNonCommercialBannerUpdateService		updateService;
@@ -36,6 +39,7 @@ public class SponsorNonCommercialBannerController extends AbstractController<Spo
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

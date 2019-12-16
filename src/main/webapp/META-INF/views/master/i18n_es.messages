@@ -45,6 +45,7 @@ master.menu.features.company-record = Registros de compañías
 master.menu.features.investor-record =  Registro de inversiones
 master.menu.features.offer = Ofertas
 master.menu.features.job = Trabajos activos
+master.menu.features.message-thread.create = Crear hilo de mensajes
 master.menu.features.message-thread = Hilos de mensajes
 
 # master.menu.administrator ###################################################

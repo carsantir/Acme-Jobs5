@@ -29,6 +29,9 @@ public class SponsorCommercialBannerController extends AbstractController<Sponso
 	@Autowired
 	private SponsorCommercialBannerUpdateService	updateService;
 
+  @Autowired
+	private SponsorCommercialBannerDeleteService	deleteService;
+
 
 	@PostConstruct
 	private void initialise() {
@@ -36,6 +39,7 @@ public class SponsorCommercialBannerController extends AbstractController<Sponso
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

@@ -10,3 +10,4 @@
 
 authenticated.involved.list.label.userAccount.username = Nombre de usuario de autenticado involucrado
 authenticated.involved.list.button.return = Volver
+authenticated.messageThread.form.label.username = Nombre de usuario
