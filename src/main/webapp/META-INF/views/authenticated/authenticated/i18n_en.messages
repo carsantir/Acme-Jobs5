@@ -13,5 +13,4 @@ authenticated.involved.list.button.return = Return
 
 
 authenticated.involved.form.label.username = Username
-authenticated.involved.canParticipate.form.button.create = Add user to message thread
 authenticated.involved.form.button.return = Return

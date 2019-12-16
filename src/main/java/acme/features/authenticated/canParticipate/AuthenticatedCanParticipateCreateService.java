@@ -41,28 +41,30 @@ public class AuthenticatedCanParticipateCreateService implements AbstractCreateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "authenticated.id", "messageThread.id");
+		request.unbind(entity, model, "authenticated.userAccount.username", "messageThread.id");
 
 	}
 
 	@Override
 	public CanParticipate instantiate(final Request<CanParticipate> request) {
 		CanParticipate canParticipate;
+		int messageThreadId;
 
 		canParticipate = new CanParticipate();
 
-		String query[] = request.getServletRequest().getQueryString().split("&");
+		if (request.getServletRequest().getQueryString() != null) {
+			String messageThreadIdParam[] = request.getServletRequest().getQueryString().split("=");
+			messageThreadId = Integer.parseInt(messageThreadIdParam[1]);
 
-		String authenticatedIdParam[] = query[0].split("=");
-		int authenticatedId = Integer.parseInt(authenticatedIdParam[1]);
+		} else {
+			messageThreadId = request.getModel().getInteger("messageThread.id");
 
-		String messageThreadIdParam[] = query[0].split("=");
-		int messageThreadId = Integer.parseInt(messageThreadIdParam[1]);
+			String username = (String) request.getModel().getAttribute("authenticated.userAccount.username");
+			Authenticated authenticated = this.repository.findOneAuthenticatedByUsername(username);
+			canParticipate.setAuthenticated(authenticated);
+		}
 
-		Authenticated authenticated = this.repository.findOneAuthenticatedById(authenticatedId);
 		MessageThread messageThread = this.repository.findOneMessageThreadById(messageThreadId);
-
-		canParticipate.setAuthenticated(authenticated);
 		canParticipate.setMessageThread(messageThread);
 
 		return canParticipate;
@@ -73,6 +75,16 @@ public class AuthenticatedCanParticipateCreateService implements AbstractCreateS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		CanParticipate canParticipate;
+		boolean isNew;
+
+		String username = request.getModel().getString("authenticated.userAccount.username");
+		int mtId = request.getModel().getInteger("messageThread.id");
+		canParticipate = this.repository.findOneCanParticipatebyMessageThreadIdAndUsername(username, mtId);
+		isNew = canParticipate == null;
+
+		errors.state(request, isNew, "authenticated.userAccount.username", "canParticipate.message.error.isNew");
 
 	}
 

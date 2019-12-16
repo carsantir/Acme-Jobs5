@@ -13,5 +13,4 @@ authenticated.involved.list.button.return = Volver
 
 
 authenticated.involved.form.label.username = Nombre de usuario
-authenticated.involved.canParticipate.form.button.create = Añadir usuario al hilo
 authenticated.involved.form.button.return = Volver
