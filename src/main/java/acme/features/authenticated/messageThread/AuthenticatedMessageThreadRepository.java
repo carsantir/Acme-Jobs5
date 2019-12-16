@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.messageThreads.CanParticipate;
 import acme.entities.messageThreads.MessageThread;
+import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -22,4 +23,6 @@ public interface AuthenticatedMessageThreadRepository extends AbstractRepository
 	@Query("select c from CanParticipate c where c.authenticated.id=?1 and c.messageThread.id=?2")
 	CanParticipate findOneMessageThreadByUserAccountId(int idPrincipal, int idMessageThread);
 
+	@Query("select a from Authenticated a where a.userAccount.id=?1")
+	Authenticated findOneAuthenticatedById(int id);
 }

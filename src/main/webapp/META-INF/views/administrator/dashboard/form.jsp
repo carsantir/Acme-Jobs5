@@ -55,7 +55,17 @@
 	<canvas id="canvas4"></canvas>
 </div>
 
+<div>
+	<canvas id="canvas5"></canvas>
+</div>
 
+<div>
+	<canvas id="canvas6"></canvas>
+</div>
+
+<div>
+	<canvas id="canvas7"></canvas>
+</div>
 <script type="text/javascript">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -85,14 +95,14 @@
 				}
 		};
 		var data2 = {
-				labels :   [<jstl:forEach var="item" items="${investorSectors}" >
-								"${item}",
+				labels :   [<jstl:forEach var="item4" items="${investorSectors}" >
+								"${item4}",
 							</jstl:forEach>],  
 				datasets: [
 					{
 						label : "Number of Investors in the following sectors",
-						data : [<jstl:forEach var="item" items="${investorsPerSector}" >
-									<jstl:out value="${item}" />,
+						data : [<jstl:forEach var="item5" items="${investorsPerSector}" >
+									<jstl:out value="${item5}" />,
 								</jstl:forEach>
 								]
 						
@@ -169,6 +179,84 @@
 			options : options
 		});
 		
+		var data5 = {
+				labels :   [<jstl:forEach var="item2" items="${lastFourWeeksPerDay}" >
+								"${item2}",
+							</jstl:forEach>],  
+				datasets: [
+					{	label : "Number of Pending Applications per day in the last four weeks",
+						data : [<jstl:forEach var="item3" items="${pendingApplicationsPerDay}" >
+									<jstl:out value="${item3}" />,
+								</jstl:forEach>
+								]
+						
+					}
+				]
+		};
+
+		
+		var canvas5, contex5;
+		
+		canvas5 = document.getElementById("canvas5");
+		context5= canvas5.getContext("2d");
+		new Chart(context5, {
+			type : "bar",
+			data : data5,
+			options : options
+		});
+		
+		var data6 = {
+				labels :   [<jstl:forEach var="item7" items="${lastFourWeeksPerDay}" >
+								"${item7}",
+							</jstl:forEach>],  
+				datasets: [
+					{	label : "Number of Accepted Applications per day in the last four weeks",
+						data : [<jstl:forEach var="item8" items="${acceptedApplicationsPerDay}" >
+									<jstl:out value="${item8}" />,
+								</jstl:forEach>
+								]
+						
+					}
+				]
+		};
+
+		
+		var canvas6, contex6;
+		
+		canvas6 = document.getElementById("canvas6");
+		context6= canvas6.getContext("2d");
+		new Chart(context6, {
+			type : "bar",
+			data : data6,
+			options : options
+		});
+		
+		var data7 = {
+				labels :   [<jstl:forEach var="item9" items="${lastFourWeeksPerDay}" >
+								"${item9}",
+							</jstl:forEach>],  
+				datasets: [
+					{	label : "Number of Rejected Applications per day in the last four weeks",
+						data : [<jstl:forEach var="item10" items="${rejectedApplicationsPerDay}" >
+									<jstl:out value="${item10}" />,
+								</jstl:forEach>
+								]
+						
+					}
+				]
+		};
+
+		
+		var canvas7, contex7;
+		
+		canvas7 = document.getElementById("canvas7");
+		context7= canvas7.getContext("2d");
+		new Chart(context7, {
+			type : "bar",
+			data : data7,
+			options : options
+		});
+
 		
 	});
 </script>

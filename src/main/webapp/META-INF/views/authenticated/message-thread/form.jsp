@@ -15,9 +15,12 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
+
 <acme:form readonly="true">
 	<acme:form-textbox code="authenticated.messageThread.form.label.title" path="title" />		
-   	<acme:form-moment code="authenticated.messageThread.form.label.moment" path="moment" />
+  <jstl:if test="${command == 'show'}">
+   		<acme:form-moment code="authenticated.messageThread.form.label.moment" path="moment" />
+    </jstl:if>
    	
 	<acme:form-submit code="authenticated.messageThread.form.label.messages" 
 		action="/authenticated/message/list?id=${id}" method="get" />

@@ -1,6 +1,8 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -87,5 +89,14 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	@Query("select 1.0 * count(a)/(select count(b) from Job b) from Job a where a.draft=false")
 	Double ratioOfPublishedJobs();
+
+	@Query("select count(*) from Application a where a.status = acme.entities.jobs.Status.PENDING and year(a.moment) = year(?1) and month(a.moment) = month(?1) and day(a.moment) = day(?1)")
+	Integer pendingApplicationsPerDay(Date fecha);
+
+	@Query("select count(*) from Application a where a.status = acme.entities.jobs.Status.ACCEPTED and year(a.moment) = year(?1) and month(a.moment) = month(?1) and day(a.moment) = day(?1)")
+	Integer acceptedApplicationsPerDay(Date fecha);
+
+	@Query("select count(*) from Application a where a.status = acme.entities.jobs.Status.REJECTED and year(a.moment) = year(?1) and month(a.moment) = month(?1) and day(a.moment) = day(?1)")
+	Integer rejectedApplicationsPerDay(Date fecha);
 
 }
