@@ -2,6 +2,7 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import acme.framework.datatypes.Money;
 import lombok.Getter;
@@ -44,4 +45,9 @@ public class Dashboard implements Serializable {
 
 	Double						ratioOfDraftJobs;
 	Double						ratioOfPublishedJobs;
+
+	Date[]						lastFourWeeksPerDay;
+	Integer[]					pendingApplicationsPerDay;
+	Integer[]					acceptedApplicationsPerDay;
+	Integer[]					rejectedApplicationsPerDay;
 }
