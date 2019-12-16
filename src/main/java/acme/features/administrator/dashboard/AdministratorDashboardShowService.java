@@ -1,6 +1,10 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +36,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, "totalAnnouncements", "totalCompanyRecords", "totalInvestorRecords", "minRewardRequest", "maxRewardRequest", "averageRewardRequest", "sdRewardRequest", "minRewardOffer", "maxRewardOffer", "averageRewardOffer",
 			"sdMinRewardOffer", "sdMaxRewardOffer", "companiesPerSector", "companySectors", "investorsPerSector", "investorSectors", "avgJobsPerEmployer", "avgApplicationsPerEmployer", "avgApplicationsPerWorker", "ratioOfPendingApplications",
-			"ratioOfAcceptedApplications", "ratioOfRejectedApplications", "ratioOfDraftJobs", "ratioOfPublishedJobs");
+			"ratioOfAcceptedApplications", "ratioOfRejectedApplications", "ratioOfDraftJobs", "ratioOfPublishedJobs", "lastFourWeeksPerDay", "pendingApplicationsPerDay");
 	}
 
 	@Override
@@ -100,6 +104,42 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setRatioOfDraftJobs(this.repository.ratioOfDraftJobs());
 
 		result.setRatioOfPublishedJobs(this.repository.ratioOfPublishedJobs());
+
+		Calendar haceCuatroSemanas = new GregorianCalendar();
+		haceCuatroSemanas.add(Calendar.WEEK_OF_YEAR, -4);
+		Date[] secuenciaFechas = new Date[28];
+
+		for (int i = 0; i < 28; i++) {
+			Calendar aux = haceCuatroSemanas;
+			aux.add(Calendar.DAY_OF_YEAR, 1);
+			secuenciaFechas[i] = aux.getTime();
+		}
+
+		result.setLastFourWeeksPerDay(secuenciaFechas);
+
+		Integer[] pending = new Integer[28];
+
+		for (int i = 0; i < 28; i++) {
+			pending[i] = this.repository.pendingApplicationsPerDay(secuenciaFechas[i]);
+		}
+
+		result.setPendingApplicationsPerDay(pending);
+
+		Integer[] accepted = new Integer[28];
+
+		for (int i = 0; i < 28; i++) {
+			accepted[i] = this.repository.acceptedApplicationsPerDay(secuenciaFechas[i]);
+		}
+
+		result.setAcceptedApplicationsPerDay(accepted);
+
+		Integer[] rejected = new Integer[28];
+
+		for (int i = 0; i < 28; i++) {
+			rejected[i] = this.repository.rejectedApplicationsPerDay(secuenciaFechas[i]);
+		}
+
+		result.setRejectedApplicationsPerDay(rejected);
 
 		return result;
 	}
