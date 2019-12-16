@@ -1,4 +1,4 @@
-# i18n_es.messages
+# i18n_en.messages
 #
 # Copyright (c) 2019 Rafael Corchuelo.
 #
@@ -8,9 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.involved.list.label.userAccount.username = Nombre de usuario de autenticado involucrado
-authenticated.involved.list.button.return = Volver
+authenticated.canParticipate.form.button.username = Username
 
-
-authenticated.involved.form.label.username = Nombre de usuario
-authenticated.involved.form.button.return = Volver
+authenticated.canParticipate.form.button.create = Add user to message thread
+authenticated.canParticipate.form.button.return = Return to message thread's list
+canParticipate.message.error.isNew = You cannot add this user again to the message thread

@@ -24,7 +24,7 @@ public class AuthenticatedAuthenticatedListNotInvolvedService implements Abstrac
 
 		int id;
 
-		String[] aux = request.getServletRequest().getQueryString().trim().split("mtId=");
+		String[] aux = request.getServletRequest().getQueryString().trim().split("=");
 		id = Integer.parseInt(aux[1]);
 
 		Authenticated creator = this.repository.findAuthorMessageThread(id);

@@ -10,4 +10,7 @@
 
 authenticated.involved.list.label.userAccount.username = Authenticated involved username
 authenticated.involved.list.button.return = Return
-authenticated.messageThread.form.label.username = Username
+
+
+authenticated.involved.form.label.username = Username
+authenticated.involved.form.button.return = Return
