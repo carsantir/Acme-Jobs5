@@ -26,7 +26,4 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select w from Worker w where w.id=?1")
 	Worker findOneWorkerById(int workerId);
-
-	@Query("select w from Worker w where w.id=?1")
-	Worker findSponsorById(int idWorker);
 }

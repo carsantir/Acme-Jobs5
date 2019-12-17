@@ -92,8 +92,8 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		result.setStatus(Status.PENDING);
 		result.setJustification(null);
 
-		result.setSkills(this.repository.findSponsorById(request.getPrincipal().getActiveRoleId()).getSkillsRecord());
-		result.setQualifications(this.repository.findSponsorById(request.getPrincipal().getActiveRoleId()).getQualificationsRecord());
+		result.setSkills(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()).getSkillsRecord());
+		result.setQualifications(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()).getQualificationsRecord());
 		return result;
 	}
 
