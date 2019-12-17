@@ -23,4 +23,5 @@ public interface AuthenticatedAuthenticatedRepository extends AbstractRepository
 
 	@Query("select a from Authenticated a where a.id=?1")
 	Authenticated findOneAuthenticated(int id);
+
 }

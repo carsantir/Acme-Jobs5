@@ -27,18 +27,16 @@ public class AuthenticatedAuthenticatedShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "userAccount.username");
-
+		request.unbind(entity, model);
+		String[] aux = request.getServletRequest().getQueryString().trim().split("mtId=");
+		int id = Integer.parseInt(aux[1]);
+		request.getModel().setAttribute("users", this.repository.findAuthenticatedNotInvolved(id));
+		request.transfer(model, "users");
 	}
 	@Override
 	public Authenticated findOne(final Request<Authenticated> request) {
 		assert request != null;
 
-		Authenticated result;
-		int id;
-
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneAuthenticated(id);
-		return result;
+		return new Authenticated();
 	}
 }

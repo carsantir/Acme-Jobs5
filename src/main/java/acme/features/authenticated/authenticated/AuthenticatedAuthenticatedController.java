@@ -17,20 +17,13 @@ import acme.framework.entities.Authenticated;
 public class AuthenticatedAuthenticatedController extends AbstractController<Authenticated, Authenticated> {
 
 	@Autowired
-	private AuthenticatedAuthenticatedListInvolvedService		listService;
-
-	@Autowired
-	private AuthenticatedAuthenticatedListNotInvolvedService	listNotInvolved;
-
-	@Autowired
-	private AuthenticatedAuthenticatedShowService				showService;
+	private AuthenticatedAuthenticatedShowService showService;
 
 
 	@PostConstruct
 	private void initialise() {
-		super.addCustomCommand(CustomCommand.LIST_INVOLVED, BasicCommand.LIST, this.listService);
-		super.addCustomCommand(CustomCommand.LIST_NOT_INVOLVED, BasicCommand.LIST, this.listNotInvolved);
-		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addCustomCommand(CustomCommand.ADD_USER, BasicCommand.SHOW, this.showService);
+
 	}
 
 }

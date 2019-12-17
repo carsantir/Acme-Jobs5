@@ -8,8 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.canParticipate.form.button.username = Username
-
-authenticated.canParticipate.form.button.create = Add user to message thread
-authenticated.canParticipate.form.button.return = Return to message thread's list
-canParticipate.message.error.isNew = You cannot add this user again to the message thread
+authenticated.add-user.form.select = Select an user
+authenticated.involved.form.button.return = Return
+authenticated.can-participate.form.button.add = Add

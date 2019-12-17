@@ -8,8 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.canParticipate.form.button.username = Usuario
-
-authenticated.canParticipate.form.button.create = Add user to message thread
-authenticated.canParticipate.form.button.return = Volver a la lista de hilos
-canParticipate.message.error.isNew = No puedes volver a añadir al usuario al hilo
+authenticated.add-user.form.select = Selecciona un usuario
+authenticated.involved.form.button.return= Volver
+authenticated.can-participate.form.button.add = Añadir

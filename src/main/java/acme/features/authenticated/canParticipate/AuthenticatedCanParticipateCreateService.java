@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.messageThreads.CanParticipate;
 import acme.entities.messageThreads.MessageThread;
 import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -41,33 +42,29 @@ public class AuthenticatedCanParticipateCreateService implements AbstractCreateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "authenticated.userAccount.username", "messageThread.id");
-
+		String[] aux = request.getServletRequest().getQueryString().trim().split("mtId=");
+		int id = Integer.parseInt(aux[1]);
+		request.getModel().setAttribute("users", this.repository.findAuthenticatedNotInvolved(id));
+		request.transfer(model, "users");
+		request.unbind(entity, model);
+		request.getModel().setAttribute("mtId", id);
+		request.transfer(model, "mtId");
 	}
 
 	@Override
 	public CanParticipate instantiate(final Request<CanParticipate> request) {
-		CanParticipate canParticipate;
-		int messageThreadId;
 
-		canParticipate = new CanParticipate();
+		CanParticipate cp = new CanParticipate();
 
-		if (request.getServletRequest().getQueryString() != null) {
-			String messageThreadIdParam[] = request.getServletRequest().getQueryString().split("=");
-			messageThreadId = Integer.parseInt(messageThreadIdParam[1]);
-
-		} else {
-			messageThreadId = request.getModel().getInteger("messageThread.id");
-
-			String username = (String) request.getModel().getAttribute("authenticated.userAccount.username");
-			Authenticated authenticated = this.repository.findOneAuthenticatedByUsername(username);
-			canParticipate.setAuthenticated(authenticated);
+		if (!request.isMethod(HttpMethod.GET)) {
+			Authenticated au = this.repository.findOneAuthenticatedById(request.getModel().getInteger("users"));
+			cp.setAuthenticated(au);
 		}
+		MessageThread mt = this.repository.findOneMessageThreadById(request.getModel().getInteger("mtId"));
 
-		MessageThread messageThread = this.repository.findOneMessageThreadById(messageThreadId);
-		canParticipate.setMessageThread(messageThread);
+		cp.setMessageThread(mt);
 
-		return canParticipate;
+		return cp;
 	}
 
 	@Override
@@ -75,16 +72,6 @@ public class AuthenticatedCanParticipateCreateService implements AbstractCreateS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		CanParticipate canParticipate;
-		boolean isNew;
-
-		String username = request.getModel().getString("authenticated.userAccount.username");
-		int mtId = request.getModel().getInteger("messageThread.id");
-		canParticipate = this.repository.findOneCanParticipatebyMessageThreadIdAndUsername(username, mtId);
-		isNew = canParticipate == null;
-
-		errors.state(request, isNew, "authenticated.userAccount.username", "canParticipate.message.error.isNew");
 
 	}
 
