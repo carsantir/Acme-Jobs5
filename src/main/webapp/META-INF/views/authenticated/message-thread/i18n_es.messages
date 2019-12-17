@@ -16,6 +16,7 @@ authenticated.messageThread.form.label.moment = Fecha de creación
 authenticated.messageThread.form.label.messages = Mensajes del hilo
 authenticated.messageThread.form.button.return = Volver
 authenticated.canParticipate.form.button.create = Añadir usuario
+authenticated.canParticipate.form.button.delete = Borrar usuario
 authenticated.messageThread.form.button.notusers = Usuarios no involucrados
 authenticated.messageThread.form.button.users = Usuarios involucrados
 authenticated.message.form.button.create=Crear mensaje

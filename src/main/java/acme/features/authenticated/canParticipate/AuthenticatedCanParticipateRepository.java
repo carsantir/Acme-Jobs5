@@ -22,5 +22,5 @@ public interface AuthenticatedCanParticipateRepository extends AbstractRepositor
 	MessageThread findOneMessageThreadById(int id);
 
 	@Query("select c from CanParticipate c where (c.authenticated.userAccount.username=?1 and c.messageThread.id=?2)")
-	CanParticipate findOneCanParticipatebyMessageThreadIdAndUsername(String username, int id);
+	CanParticipate findOneCanParticipateByMessageThreadIdAndUsername(String username, int id);
 }

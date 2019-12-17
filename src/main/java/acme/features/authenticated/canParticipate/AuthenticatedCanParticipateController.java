@@ -17,12 +17,16 @@ import acme.framework.entities.Authenticated;
 public class AuthenticatedCanParticipateController extends AbstractController<Authenticated, CanParticipate> {
 
 	@Autowired
-	private AuthenticatedCanParticipateCreateService createService;
+	private AuthenticatedCanParticipateCreateService	createService;
+
+	@Autowired
+	private AuthenticatedCanParticipateDeleteService	deleteService;
 
 
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }

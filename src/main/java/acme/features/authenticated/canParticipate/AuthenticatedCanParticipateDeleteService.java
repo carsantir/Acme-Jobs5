@@ -10,13 +10,13 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AuthenticatedCanParticipateCreateService implements AbstractCreateService<Authenticated, CanParticipate> {
+public class AuthenticatedCanParticipateDeleteService implements AbstractDeleteService<Authenticated, CanParticipate> {
 
 	@Autowired
-	AuthenticatedCanParticipateRepository repository;
+	private AuthenticatedCanParticipateRepository repository;
 
 
 	@Override
@@ -58,33 +58,33 @@ public class AuthenticatedCanParticipateCreateService implements AbstractCreateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "authenticated.userAccount.username", "messageThread.id");
+		request.unbind(entity, model, "messageThread.id", "authenticated.userAccount.username");
 
 	}
 
 	@Override
-	public CanParticipate instantiate(final Request<CanParticipate> request) {
-		CanParticipate canParticipate;
+	public CanParticipate findOne(final Request<CanParticipate> request) {
+		assert request != null;
+
+		CanParticipate result;
+		String username;
 		int messageThreadId;
 
-		canParticipate = new CanParticipate();
-
-		if (request.getServletRequest().getQueryString() != null) {
-			String messageThreadIdParam[] = request.getServletRequest().getQueryString().split("=");
-			messageThreadId = Integer.parseInt(messageThreadIdParam[1]);
-
-		} else {
+		if (request.getServletRequest().getQueryString() == null) {
 			messageThreadId = request.getModel().getInteger("messageThread.id");
-
-			String username = (String) request.getModel().getAttribute("authenticated.userAccount.username");
-			Authenticated authenticated = this.repository.findOneAuthenticatedByUsername(username);
-			canParticipate.setAuthenticated(authenticated);
+			username = request.getModel().getString("authenticated.userAccount.username");
+			result = this.repository.findOneCanParticipateByMessageThreadIdAndUsername(username, messageThreadId);
 		}
 
-		MessageThread messageThread = this.repository.findOneMessageThreadById(messageThreadId);
-		canParticipate.setMessageThread(messageThread);
-
-		return canParticipate;
+		/*
+		 * String url = request.getServletRequest().getQueryString();
+		 * String[] aux = url.split("=");
+		 * id = Integer.parseInt(aux[1]);
+		 *
+		 * username = request.getModel().getString("authenticated.userAccount.username");
+		 * result = this.repository.findOneCanParticipateByMessageThreadIdAndUsername(username, id);
+		 */
+		return result;
 	}
 
 	@Override
@@ -94,23 +94,23 @@ public class AuthenticatedCanParticipateCreateService implements AbstractCreateS
 		assert errors != null;
 
 		CanParticipate canParticipate;
-		boolean exists;
+		boolean isNew;
 
 		String username = request.getModel().getString("authenticated.userAccount.username");
 		int mtId = request.getModel().getInteger("messageThread.id");
 		canParticipate = this.repository.findOneCanParticipateByMessageThreadIdAndUsername(username, mtId);
-		exists = canParticipate != null;
+		isNew = canParticipate != null;
 
-		errors.state(request, exists, "authenticated.userAccount.username", "canParticipate.message.error.exists");
-
+		errors.state(request, isNew, "authenticated.userAccount.username", "canParticipate.message.error.isNew");
 	}
 
 	@Override
-	public void create(final Request<CanParticipate> request, final CanParticipate entity) {
+	public void delete(final Request<CanParticipate> request, final CanParticipate entity) {
 		assert request != null;
 		assert entity != null;
 
-		this.repository.save(entity);
+		this.repository.delete(entity);
+
 	}
 
 }

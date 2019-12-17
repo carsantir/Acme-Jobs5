@@ -11,5 +11,7 @@
 authenticated.canParticipate.form.button.username = Username
 
 authenticated.canParticipate.form.button.create = Add user to message thread
+authenticated.canParticipate.form.button.delete = Delete user from message thread
 authenticated.canParticipate.form.button.return = Return to message thread's list
 canParticipate.message.error.isNew = You cannot add this user again to the message thread
+canParticipate.message.error.exists = You cannot delete an user that is not involved in the message thread

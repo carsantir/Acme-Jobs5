@@ -16,6 +16,7 @@ authenticated.messageThread.form.label.moment = Creation moment
 authenticated.messageThread.form.label.messages = Thread's messages
 authenticated.messageThread.form.button.return = Return
 authenticated.canParticipate.form.button.create = Add user
+authenticated.canParticipate.form.button.delete = Delete user
 authenticated.messageThread.form.button.notusers = Users not involved
 authenticated.messageThread.form.button.users = Users involved
 authenticated.message.form.button.create=Create message

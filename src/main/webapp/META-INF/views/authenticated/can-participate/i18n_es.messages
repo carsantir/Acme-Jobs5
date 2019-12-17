@@ -10,6 +10,8 @@
 
 authenticated.canParticipate.form.button.username = Usuario
 
-authenticated.canParticipate.form.button.create = Add user to message thread
+authenticated.canParticipate.form.button.create = Añadir usuario al hilo
+authenticated.canParticipate.form.button.delete = Borrar usuario del hilo
 authenticated.canParticipate.form.button.return = Volver a la lista de hilos
 canParticipate.message.error.isNew = No puedes volver a añadir al usuario al hilo
+canParticipate.message.error.exists = No puedes borrar un usuario que no está involucrado en el hilo

@@ -24,7 +24,12 @@
 	<jstl:if test="${command == 'create'}">		   	
 	   	<acme:form-submit code="authenticated.canParticipate.form.button.create"
 			action="/authenticated/can-participate/create"/>
-
+   	</jstl:if>
+   	
+   	 <%-- TO DO:--%>
+   	<jstl:if test="${command == 'delete'}">
+   		<acme:form-submit code="authenticated.canParticipate.form.button.delete"
+   			action="/authenticated/can-participate/delete"/>
    	</jstl:if>
    	
 	<acme:form-return code="authenticated.canParticipate.form.button.return"/>
