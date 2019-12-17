@@ -19,13 +19,13 @@
 	<acme:form-textbox code="employer.application.form.label.referenceNumber" path="referenceNumber" readonly="true"/>		
    	<acme:form-moment code="employer.application.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.status" path="status" readonly="true"/>
-	<acme:form-textarea code="employer.application.form.label.justification" path="justification" />
 	<acme:form-textbox code="employer.application.form.label.statement" path="statement" readonly="true"/>	
 	<acme:form-textbox code="employer.application.form.label.skills" path="skills" readonly="true"/>	
 	<acme:form-textbox code="employer.application.form.label.qualifications" path="qualifications" readonly="true"/>	
 	<acme:form-textbox code="employer.application.form.label.job.title" path="job.title" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.job.reference" path="job.reference" readonly="true"/>
 	<acme:form-textbox code="employer.application.form.label.worker.userAccount.username" path="worker.userAccount.username" readonly="true"/>
+	<acme:form-textarea code="employer.application.form.label.justification" path="justification" />
 	
 	<acme:form-submit test="${command == 'show' && status == 'PENDING'}"
 		code="employer.application.form.button.reject" 
