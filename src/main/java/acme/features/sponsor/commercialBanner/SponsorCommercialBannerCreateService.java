@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.commercialBanner;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +30,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		Principal principal;
 		principal = request.getPrincipal();
 		Sponsor s = this.repository.findCreditCardBySponsorId(principal.getActiveRoleId());
-		if (s.getCreditCard() != null || s.getCreditCard().equals("")) {
+		if (s.getCreditCard() != null && !s.getCreditCard().isEmpty() && s.getExpirationDate() != null && !s.getExpirationDate().isEmpty() && s.getCvv() != null) {
 			res = true;
 		} else {
 			res = false;
@@ -52,7 +55,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "pictureUrl", "slogan", "targetUrl", "creditCard");
+		request.unbind(entity, model, "pictureUrl", "slogan", "targetUrl", "creditCard", "cvv", "expirationDate");
 
 	}
 
@@ -96,6 +99,20 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 
 		}
 
+		if (entity.getExpirationDate() != null && !entity.getExpirationDate().isEmpty()) {
+			boolean isFormat = entity.getExpirationDate().matches("^(0[1-9]{1}|1[0-2]{1})/\\d{4}$");
+			errors.state(request, isFormat, "expirationDate", "sponsor.commercial-banner.error.invalid-format");
+
+			if (isFormat) {
+				boolean isFuture;
+				Calendar hoy = new GregorianCalendar();
+				String[] fecha = entity.getExpirationDate().split("/");
+				Integer year = Integer.parseInt(fecha[1]);
+				Integer month = Integer.parseInt(fecha[0]);
+				isFuture = year > hoy.get(Calendar.YEAR) || hoy.get(Calendar.YEAR) == year && month > hoy.get(Calendar.MONTH);
+				errors.state(request, isFuture, "expirationDate", "sponsor.commercial-banner.error.expiration-date");
+			}
+		}
 	}
 
 	@Override

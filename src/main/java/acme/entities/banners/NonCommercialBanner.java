@@ -4,7 +4,6 @@ package acme.entities.banners;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 import acme.entities.roles.Sponsor;
 import lombok.Getter;
@@ -19,9 +18,8 @@ public class NonCommercialBanner extends Banner {
 
 	private String				jingle;
 
-	@NotNull
 	@Valid
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	private Sponsor				sponsor;
 
 }

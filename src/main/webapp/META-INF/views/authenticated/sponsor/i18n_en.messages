@@ -12,5 +12,11 @@ authenticated.sponsor.form.label.organisationName=Organisation Name
 authenticated.sponsor.form.label.creditCard=Credit card
 authenticated.sponsor.form.button.create=Register
 authenticated.sponsor.form.button.update=Update
+authenticated.sponsor.form.label.cvv = CVV
+authenticated.sponsor.form.label.expirationDate = Expiration date
 
 authenticated.sponsor.form.button.return=Return
+
+authenticated.sponsor.error.expiration-date = The expiration date with format mm/yyyy must be future
+authenticated.sponsor.error.credit-card = Invalid credit card format
+authenticated.sponsor.error.invalid-format = The date format must be mm/yyyy

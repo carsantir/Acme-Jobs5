@@ -20,6 +20,8 @@
 	<acme:form-textbox code="administrator.commercial-banner.form.label.slogan" path="slogan" />
 	<acme:form-url code="administrator.commercial-banner.form.label.targetUrl" path="targetUrl" />
 	<acme:form-textbox code="administrator.commercial-banner.form.label.creditCard" path="creditCard" />
+	<acme:form-integer code="administrator.commercial-banner.form.label.cvv" path="cvv" placeholder="123"/>
+	<acme:form-integer code="administrator.commercial-banner.form.label.expirationDate" path="expirationDate" placeholder="mm/yyyy"/>
 	
 	<acme:form-submit test="${command == 'create'}"
 		code="administrator.commercial-banner.form.button.create"

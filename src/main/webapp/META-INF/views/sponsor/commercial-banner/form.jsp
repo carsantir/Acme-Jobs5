@@ -20,6 +20,8 @@
    	<acme:form-textbox code="sponsor.commercial-banner.form.label.slogan" path="slogan"/>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.targetUrl" path="targetUrl"/>	
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.creditCard" path="creditCard"/>
+	<acme:form-integer code="sponsor.commercial-banner.form.label.cvv" path="cvv" placeholder="123"/>
+	<acme:form-textbox code="sponsor.commercial-banner.form.label.expirationDate" path="expirationDate" placeholder="mm/yyyy"/>
 	<jstl:if test="${command != 'create'}">	
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.sponsor.userAccount.username" path="sponsor.userAccount.username" readonly="true"/>
 	</jstl:if>
