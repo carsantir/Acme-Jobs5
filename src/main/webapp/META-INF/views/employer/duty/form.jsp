@@ -18,7 +18,7 @@
 <acme:form>
 	<acme:form-textbox code="employer.duty.form.label.title" path="title"/>
 	<acme:form-textbox code="employer.duty.form.label.description" path="description" />
-	<acme:form-double code="employer.duty.form.label.percentage" path="percentage" />
+	<acme:form-double code="employer.duty.form.label.percentage" path="percentage" placeholder="20"/>
 	
 	<jstl:if test="${command == 'delete'}">
 		<acme:form-hidden path="job.employer.id"/>

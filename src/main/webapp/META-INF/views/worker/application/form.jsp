@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textarea code="worker.application.form.label.referenceNumber" path="referenceNumber"/>			
+	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber" placeholder="EMPX-JOBX"/>			
 	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>	
 	<acme:form-textbox code="worker.application.form.label.skills" path="skills"/>	
 	<acme:form-textbox code="worker.application.form.label.qualifications" path="qualifications"/>	
