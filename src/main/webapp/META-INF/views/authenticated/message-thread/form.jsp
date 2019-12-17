@@ -23,19 +23,13 @@
     </jstl:if>
    	
 	<acme:form-submit code="authenticated.messageThread.form.label.messages" 
-		action="/authenticated/message/list?id=${id}" method="get" />
-			
-	<acme:form-submit code="authenticated.canParticipate.form.button.create"
-		action="/authenticated/can-participate/create?messageThreadId=${id}" method="get"/>
-		
-	<acme:form-submit code="authenticated.canParticipate.form.button.delete"
-		action="/authenticated/can-participate/delete?messageThreadId=${id}" method="get"/>				
+		action="/authenticated/message/list?id=${id}" method="get" />			
 			
 	<acme:form-submit code="authenticated.messageThread.form.button.notusers" 
 		action="/authenticated/authenticated/list-not-involved?mtId=${id}" method="get" />		
 			
 	<acme:form-submit code="authenticated.messageThread.form.button.users" 
-		action="/authenticated/authenticated/list-involved?mtId=${id}" method="get" />
+		action="/authenticated/can-participate/list-involved?mtId=${id}" method="get" />
 	
 	<acme:form-submit code="authenticated.message.form.button.create"
 		action="/authenticated/message/create?id=${id}" method="get"/>

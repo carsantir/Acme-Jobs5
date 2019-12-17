@@ -5,14 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.CanParticipate;
-import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
-import acme.framework.services.AbstractDeleteService;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AuthenticatedCanParticipateDeleteService implements AbstractDeleteService<Authenticated, CanParticipate> {
+public class AuthenticatedCanParticipateShowService implements AbstractShowService<Authenticated, CanParticipate> {
 
 	@Autowired
 	private AuthenticatedCanParticipateRepository repository;
@@ -36,16 +35,6 @@ public class AuthenticatedCanParticipateDeleteService implements AbstractDeleteS
 	}
 
 	@Override
-	public void bind(final Request<CanParticipate> request, final CanParticipate entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors);
-
-	}
-
-	@Override
 	public void unbind(final Request<CanParticipate> request, final CanParticipate entity, final Model model) {
 		assert request != null;
 		assert entity != null;
@@ -66,22 +55,6 @@ public class AuthenticatedCanParticipateDeleteService implements AbstractDeleteS
 		cp = this.repository.findOneById(canParticipateId);
 
 		return cp;
-	}
-
-	@Override
-	public void validate(final Request<CanParticipate> request, final CanParticipate entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-	}
-
-	@Override
-	public void delete(final Request<CanParticipate> request, final CanParticipate entity) {
-		assert request != null;
-		assert entity != null;
-
-		this.repository.delete(entity);
-
 	}
 
 }

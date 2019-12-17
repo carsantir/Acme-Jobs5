@@ -1,6 +1,8 @@
 
 package acme.features.authenticated.canParticipate;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -21,6 +23,12 @@ public interface AuthenticatedCanParticipateRepository extends AbstractRepositor
 	@Query("select mt from MessageThread mt where mt.id=?1")
 	MessageThread findOneMessageThreadById(int id);
 
-	@Query("select c from CanParticipate c where (c.authenticated.userAccount.username=?1 and c.messageThread.id=?2)")
-	CanParticipate findOneCanParticipateByMessageThreadIdAndUsername(String username, int id);
+	@Query("select c from CanParticipate c where (c.authenticated.userAccount.id=?1 and c.messageThread.id=?2)")
+	CanParticipate findOneCanParticipateByMessageThreadIdAndAuthenticatedId(int authenticatedId, int messageThreadId);
+
+	@Query("select c from CanParticipate c where c.messageThread.id=?1")
+	Collection<CanParticipate> findManyByMessageThreadId(int messageThreadId);
+
+	@Query("select c from CanParticipate c where c.id=?1")
+	CanParticipate findOneById(int id);
 }

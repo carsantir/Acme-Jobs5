@@ -8,10 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.canParticipate.form.button.username = Username
+authenticated.can-participate.list.label.userAccount.username = Users involved
+authenticated.can-participate.list.label.messageThread = Message thread's title
+authenticated.can-participate.list.button.return = Return to message threads list
 
-authenticated.canParticipate.form.button.create = Add user to message thread
-authenticated.canParticipate.form.button.delete = Delete user from message thread
-authenticated.canParticipate.form.button.return = Return to message thread's list
-canParticipate.message.error.isNew = You cannot add this user again to the message thread
-canParticipate.message.error.exists = You cannot delete an user that is not involved in the message thread
+authenticated.can-participate.form.label.userAccount.username = User involved
+authenticated.can-participate.form.label.messageThread = Message thread's title
+authenticated.can-participate.form.button.delete = Delete user from message thread
+authenticated.can-participate.form.button.return = Return to involved users list

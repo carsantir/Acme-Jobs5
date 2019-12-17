@@ -15,22 +15,20 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form>	
+<acme:form readonly="true">	
 
-	<acme:form-textbox code="authenticated.canParticipate.form.button.username" path="authenticated.userAccount.username"/>
-	<acme:form-hidden path="messageThread.id"/>	
+	<acme:form-textbox code="authenticated.can-participate.form.label.userAccount.username" path="authenticated.userAccount.username"/>
+	<acme:form-textbox code="authenticated.can-participate.form.label.messageThread" path="messageThread.title"/>
 
-		
-	<jstl:if test="${command == 'create'}">		   	
-	   	<acme:form-submit code="authenticated.canParticipate.form.button.create"
-			action="/authenticated/can-participate/create"/>
-   	</jstl:if>
-   	
-   	 <%-- TO DO:--%>
-   	<jstl:if test="${command == 'delete'}">
-   		<acme:form-submit code="authenticated.canParticipate.form.button.delete"
+	<jstl:if test="${command == 'show'}">
+   		<acme:form-submit code="authenticated.can-participate.form.button.delete"
    			action="/authenticated/can-participate/delete"/>
    	</jstl:if>
    	
-	<acme:form-return code="authenticated.canParticipate.form.button.return"/>
+   	<jstl:if test="${command == 'delete'}">
+   		<acme:form-submit code="authenticated.can-participate.form.button.delete"
+   			action="/authenticated/can-participate/delete"/>
+   	</jstl:if>
+   	
+	<acme:form-return code="authenticated.can-participate.form.button.return"/>
 </acme:form>
