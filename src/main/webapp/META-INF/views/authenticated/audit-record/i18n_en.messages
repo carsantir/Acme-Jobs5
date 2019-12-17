@@ -12,6 +12,7 @@ authenticated.audit-record.list.label.title=Title
 authenticated.audit-record.list.label.moment=Creation moment
 authenticated.audit-record.list.label.draft=Is Draft?
 authenticated.audit-record.list.label.job=Job title
+authenticated.audit-record.list.label.username=Auditor creator
 
 authenticated.audit-record.form.label.title=Title
 authenticated.audit-record.form.label.moment=Moment

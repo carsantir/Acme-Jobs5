@@ -20,7 +20,12 @@ public class AuthenticatedAuditRecordShowService implements AbstractShowService<
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return true;
+
+		int id;
+		id = request.getModel().getInteger("id");
+		AuditRecord ar = this.repository.findOneAuditRecordById(id);
+
+		return !ar.isDraft();
 	}
 	@Override
 	public void unbind(final Request<AuditRecord> request, final AuditRecord entity, final Model model) {

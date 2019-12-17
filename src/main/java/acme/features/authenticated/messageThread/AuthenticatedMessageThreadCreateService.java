@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.messageThreads.CanParticipate;
 import acme.entities.messageThreads.MessageThread;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -78,6 +79,13 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		entity.setMoment(moment);
 
 		this.repository.save(entity);
+
+		CanParticipate cp = new CanParticipate();
+
+		cp.setAuthenticated(this.repository.findOneAuthenticatedById(request.getPrincipal().getAccountId()));
+		cp.setMessageThread(this.repository.findOneMessageThreadById(entity.getId()));
+
+		this.repository.save(cp);
 
 	}
 

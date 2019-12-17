@@ -27,12 +27,16 @@ public class AuditorAuditRecordShowService implements AbstractShowService<Audito
 		principal = request.getPrincipal();
 		idPrincipal = principal.getActiveRoleId();
 
+		int id;
+		id = request.getModel().getInteger("id");
+		AuditRecord ar = this.repository.findOneAuditRecordById(id);
+
 		Collection<Integer> idNotEnabled = this.repository.findOneAuditorByEnabled();
 
 		if (idNotEnabled.contains(idPrincipal)) {
 			return false;
 		} else {
-			return true;
+			return !ar.isDraft() || ar.isDraft() && ar.getAuditor().getId() == request.getPrincipal().getActiveRoleId();
 		}
 	}
 	@Override

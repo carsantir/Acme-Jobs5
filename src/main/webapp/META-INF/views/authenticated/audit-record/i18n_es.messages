@@ -12,6 +12,7 @@ authenticated.audit-record.list.label.title=Título
 authenticated.audit-record.list.label.moment=Fecha de creación
 authenticated.audit-record.list.label.draft=¿Es un borrador?
 authenticated.audit-record.list.label.job=Título del trabajo
+authenticated.audit-record.list.label.username=Auditor creador
 
 authenticated.audit-record.form.label.title=Título
 authenticated.audit-record.form.label.moment=Momento

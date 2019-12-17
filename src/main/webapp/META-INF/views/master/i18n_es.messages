@@ -90,8 +90,8 @@ master.menu.worker.application.list-mine = Listar mis aplicaciones
 # master.menu.employer ##########################################################
 
 master.menu.employer = Contratador
-master.menu.employer.features.job.list = Listar trabajos
-master.menu.employer.application.list-mine = Listar aplicaciones
+master.menu.employer.features.job.list = Listar mis trabajos
+master.menu.employer.application.list-mine = Listar aplicaciones a mis trabajos
 master.menu.employer.features.job.create = Crear un trabajo
 
 # master.menu.auditor ##########################################################

@@ -55,7 +55,6 @@ public class Job extends DomainEntity {
 	@NotNull
 	private boolean				draft;
 
-	@NotBlank
 	private String				description;
 
 	@NotNull
