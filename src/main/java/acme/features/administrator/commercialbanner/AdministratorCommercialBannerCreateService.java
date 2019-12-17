@@ -1,11 +1,13 @@
 
 package acme.features.administrator.commercialbanner;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.CommercialBanner;
-import acme.features.administrator.commercialbanner.AdministratorCommercialBannerRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -42,7 +44,7 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "pictureUrl", "slogan", "targetUrl", "creditCard");
+		request.unbind(entity, model, "pictureUrl", "slogan", "targetUrl", "creditCard", "cvv", "expirationDate");
 	}
 
 	@Override
@@ -60,6 +62,20 @@ public class AdministratorCommercialBannerCreateService implements AbstractCreat
 		assert entity != null;
 		assert errors != null;
 
+		if (entity.getExpirationDate() != null && !entity.getExpirationDate().isEmpty()) {
+			boolean isFormat = entity.getExpirationDate().matches("^(0[1-9]{1}|1[0-2]{1})/\\d{4}$");
+			errors.state(request, isFormat, "expirationDate", "administrator.commercial-banner.error.invalid-format");
+
+			if (isFormat) {
+				boolean isFuture;
+				Calendar hoy = new GregorianCalendar();
+				String[] fecha = entity.getExpirationDate().split("/");
+				Integer year = Integer.parseInt(fecha[1]);
+				Integer month = Integer.parseInt(fecha[0]);
+				isFuture = year > hoy.get(Calendar.YEAR) || hoy.get(Calendar.YEAR) == year && month > hoy.get(Calendar.MONTH);
+				errors.state(request, isFuture, "expirationDate", "administrator.commercial-banner.error.expiration-date");
+			}
+		}
 	}
 
 	@Override
