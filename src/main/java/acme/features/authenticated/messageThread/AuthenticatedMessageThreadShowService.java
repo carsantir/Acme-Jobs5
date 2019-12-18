@@ -49,7 +49,8 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment");
+		request.unbind(entity, model, "title", "moment", "authenticated.id");
+
 	}
 	@Override
 	public MessageThread findOne(final Request<MessageThread> request) {

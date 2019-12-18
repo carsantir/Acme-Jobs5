@@ -31,4 +31,10 @@ public interface AuthenticatedCanParticipateRepository extends AbstractRepositor
 
 	@Query("select c from CanParticipate c where c.id=?1")
 	CanParticipate findOneById(int id);
+
+	@Query("select a from Authenticated a where a.id not in (select cp.authenticated.id from CanParticipate cp where cp.messageThread.id = ?1)")
+	Collection<Authenticated> findAuthenticatedNotInvolved(int messageThreadId);
+
+	@Query("select a from Authenticated a where a.id in (select cp.authenticated.id from CanParticipate cp where cp.messageThread.id = ?1)")
+	Collection<Authenticated> findAuthenticatedInvolved(int messageThreadId);
 }

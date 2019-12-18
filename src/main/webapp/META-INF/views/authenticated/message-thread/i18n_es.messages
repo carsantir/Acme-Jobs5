@@ -21,3 +21,4 @@ authenticated.messageThread.form.button.notusers = Usuarios no involucrados
 authenticated.messageThread.form.button.users = Usuarios involucrados
 authenticated.message.form.button.create=Crear mensaje
 authenticated.messageThread.form.button.create=Crear hilo de mensajes
+authenticated.messageThread.form.button.notusers = Añadir usuario

@@ -26,12 +26,16 @@ public class AuthenticatedCanParticipateController extends AbstractController<Au
 	@Autowired
 	private AuthenticatedCanParticipateDeleteService		deleteService;
 
+	@Autowired
+	private AuthenticatedCanParticipateCreateService		createService;
+
 
 	@PostConstruct
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_INVOLVED, BasicCommand.LIST, this.listInvolvedService);
 		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }

@@ -16,15 +16,20 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="authenticated.messageThread.form.label.title" path="title" />		
+	<acme:form-textbox code="authenticated.messageThread.form.label.title" path="title" />
+	<acme:form-hidden path="authenticated.id"/>	
   <jstl:if test="${command == 'show'}">
    		<acme:form-moment code="authenticated.messageThread.form.label.moment" path="moment" />
    	
 	<acme:form-submit code="authenticated.messageThread.form.label.messages" 
 		action="/authenticated/message/list?id=${id}" method="get" />			
+		
+			<acme:form-submit code="authenticated.messageThread.form.button.users" 
+			action="/authenticated/can-participate/list-involved?mtId=${id}" method="get" />
+		
+			<acme:form-submit code="authenticated.messageThread.form.button.notusers"
+			action="/authenticated/can-participate/create?mtId=${id}" method="get" />
 			
-	<acme:form-submit code="authenticated.messageThread.form.button.users" 
-		action="/authenticated/can-participate/list-involved?mtId=${id}" method="get" />
 	
 	<acme:form-submit code="authenticated.message.form.button.create"
 		action="/authenticated/message/create?id=${id}" method="get"/>
@@ -35,6 +40,7 @@
 		<acme:form-submit code="authenticated.messageThread.form.button.create"
 			action="/authenticated/message-thread/create" />
 	</jstl:if>
+
 
 	<acme:form-return code="authenticated.messageThread.form.button.return" />
 </acme:form>
