@@ -100,7 +100,9 @@
         `slogan` varchar(255),
         `target_url` varchar(255),
         `credit_card` varchar(255),
-        `sponsor_id` integer not null,
+        `cvv` integer,
+        `expiration_date` varchar(255),
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -207,7 +209,7 @@
         `slogan` varchar(255),
         `target_url` varchar(255),
         `jingle` varchar(255),
-        `sponsor_id` integer not null,
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -253,6 +255,8 @@
         `version` integer not null,
         `user_account_id` integer,
         `credit_card` varchar(255),
+        `cvv` integer,
+        `expiration_date` varchar(255),
         `organisation_name` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;

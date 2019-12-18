@@ -16,3 +16,4 @@ authenticated.can-participate.form.label.userAccount.username = User involved
 authenticated.can-participate.form.label.messageThread = Message thread's title
 authenticated.can-participate.form.button.delete = Delete user from message thread
 authenticated.can-participate.form.button.return = Return to involved users list
+authenticated.can-participate.form.errors = As a creator, you cannot delete yourself

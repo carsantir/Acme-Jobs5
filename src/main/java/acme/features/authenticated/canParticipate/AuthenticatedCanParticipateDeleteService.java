@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.messageThreads.CanParticipate;
+import acme.entities.messageThreads.MessageThread;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -30,7 +31,10 @@ public class AuthenticatedCanParticipateDeleteService implements AbstractDeleteS
 		canParticipateId = request.getModel().getInteger("id");
 		cp = this.repository.findOneById(canParticipateId);
 
-		result = request.getPrincipal().getActiveRoleId() == cp.getMessageThread().getAuthenticated().getId();
+		MessageThread mt = cp.getMessageThread();
+		Authenticated creator = mt.getAuthenticated();
+
+		result = creator.getId() != cp.getAuthenticated().getId() && request.getPrincipal().getActiveRoleId() == cp.getMessageThread().getAuthenticated().getId();
 
 		return result;
 	}
@@ -73,6 +77,7 @@ public class AuthenticatedCanParticipateDeleteService implements AbstractDeleteS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
 	}
 
 	@Override
