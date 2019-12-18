@@ -17,10 +17,11 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
+	<acme:list-column code="auditor.audit-record.list.label.username" path="auditor.userAccount.username" width="20%"/>
 	<acme:list-column code="auditor.audit-record.list.label.title" path="title" width="10%" />		
    	<acme:list-column code="auditor.audit-record.list.label.moment" path="moment" width="10%" />
-	<acme:list-column code="auditor.audit-record.list.label.draft" path="draft" width="20%"/>
 	<acme:list-column code="auditor.audit-record.list.label.job" path="job.title" width="20%"/>
+	<acme:list-column code="auditor.audit-record.list.label.draft" path="draft" width="20%"/>
 </acme:list>
 
 <acme:form readonly="true">

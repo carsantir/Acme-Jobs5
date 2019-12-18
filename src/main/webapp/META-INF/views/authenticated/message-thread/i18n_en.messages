@@ -20,4 +20,4 @@ authenticated.canParticipate.form.button.delete = Delete user
 authenticated.messageThread.form.button.notusers = Users not involved
 authenticated.messageThread.form.button.users = Users involved
 authenticated.message.form.button.create=Create message
-authenticated.messageThread.form.label.create=Create message thread
+authenticated.messageThread.form.button.create=Create message thread

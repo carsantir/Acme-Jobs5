@@ -1034,6 +1034,8 @@
 	<bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="organisationName" value="Organisation 1"/>
 		<property name="creditCard" value="4534661982419844"/>
+		<property name="cvv" value="348" />
+		<property name="expirationDate" value="05/2023" />
 		<property name="userAccount" ref="sponsor1UserAccount"/>
 	</bean>
 	
@@ -1063,6 +1065,8 @@
 	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="organisationName" value="Organisation 2"/>
 		<property name="creditCard" value="4534661982419844"/>
+		<property name="cvv" value="348" />
+		<property name="expirationDate" value="05/2023" />
 		<property name="userAccount" ref="sponsor2UserAccount"/>
 	</bean>
 	
@@ -1071,6 +1075,8 @@
 		<property name="slogan" value="work hard 1" />
 		<property name="targetUrl" value="http://anotherexample1.com" />
 		<property name="creditCard" value="4534661982419844" />
+		<property name="cvv" value="348" />
+		<property name="expirationDate" value="05/2025" />
 		<property name="sponsor" ref="sponsor1Sponsor" />
 	</bean>
 	
@@ -1079,6 +1085,8 @@
 		<property name="slogan" value="work hard 2" />
 		<property name="targetUrl" value="http://anotherexample2.com" />
 		<property name="creditCard" value="4534661982419844" />
+		<property name="cvv" value="348" />
+		<property name="expirationDate" value="05/2022" />
 		<property name="sponsor" ref="sponsor1Sponsor" />
 	</bean>
 	
@@ -1087,6 +1095,8 @@
 		<property name="slogan" value="work hard 3" />
 		<property name="targetUrl" value="http://anotherexample3.com" />
 		<property name="creditCard" value="4534661982419844" />
+		<property name="cvv" value="348" />
+		<property name="expirationDate" value="05/2022" />
 		<property name="sponsor" ref="sponsor1Sponsor" />
 	</bean>
 	
@@ -1095,6 +1105,8 @@
 		<property name="slogan" value="work hard 4" />
 		<property name="targetUrl" value="http://anotherexample4.com" />
 		<property name="creditCard" value="4534661982419844" />
+		<property name="cvv" value="348" />
+		<property name="expirationDate" value="05/2023" />
 		<property name="sponsor" ref="sponsor2Sponsor" />
 	</bean>
 
@@ -1104,6 +1116,8 @@
 		<property name="slogan" value="work hard 5" />
 		<property name="targetUrl" value="http://anotherexample5.com" />
 		<property name="creditCard" value="4534661982419844" />
+		<property name="cvv" value="348" />
+		<property name="expirationDate" value="05/2023" />
 		<property name="sponsor" ref="sponsor2Sponsor" />
 	</bean>
 	

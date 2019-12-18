@@ -35,3 +35,4 @@ employer.job.error.future=La fecha límite debe ser futura
 employer.job.error.must-be-euro=La divisa debe ser € o EUR (que representa los euros)
 employer.job.duty.error.spam=Los deberes asociados a este trabajo superan el número de palabras spam permitidas en sus campos
 employer.job.error.apps=No puedes eliminar un trabajo que tenga solicitudes
+employer.job.error.must-have-description=El trabajo debe tener una descripción para ser guardado como público

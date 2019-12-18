@@ -15,8 +15,13 @@ administrator.commercial-banner.form.label.pictureUrl = Url de imagen
 administrator.commercial-banner.form.label.slogan = Slogan
 administrator.commercial-banner.form.label.targetUrl = Url de destino
 administrator.commercial-banner.form.label.creditCard = Tarjeta de Crédito
+administrator.commercial-banner.form.label.cvv = CVV
+administrator.commercial-banner.form.label.expirationDate = Fecha de expiración
 
 administrator.commercial-banner.form.button.return = Volver
 administrator.commercial-banner.form.button.create = Crear
 administrator.commercial-banner.form.button.update = Actualizar
 administrator.commercial-banner.form.button.delete = Eliminar
+
+administrator.commercial-banner.error.expiration-date = La fecha de expiración con el formato mm/yyyy debe ser futura
+administrator.commercial-banner.error.invalid-format = El formato de fecha de caducidad deber ser mm/yyyy

@@ -12,6 +12,7 @@ auditor.audit-record.list.label.title=Título
 auditor.audit-record.list.label.moment=Fecha de creación
 auditor.audit-record.list.label.draft=¿Es un borrador?
 auditor.audit-record.list.label.job=Título del trabajo
+auditor.audit-record.list.label.username=Auditor creador
 
 auditor.audit-record.form.label.title=Título
 auditor.audit-record.form.label.moment=Momento
@@ -19,5 +20,6 @@ auditor.audit-record.form.label.body=Cuerpo
 auditor.audit-record.form.label.draft=¿Es un borrador?
 auditor.audit-record.form.label.job=Título del trabajo
 auditor.audit-record.form.button.create = Crear
+auditor.audit-record.form.button.update = Actualizar
 	
 auditor.audit-record.form.button.return=Volver

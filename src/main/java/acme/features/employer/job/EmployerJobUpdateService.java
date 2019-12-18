@@ -154,6 +154,11 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 				errors.state(request, isEuro, "salary", "employer.job.error.must-be-euro");
 			}
 
+			boolean hasDescriptor;
+
+			hasDescriptor = !entity.isDraft() && entity.getDescription() != null && !entity.isDraft() && !entity.getDescription().isEmpty() && !entity.isDraft() && !entity.getDescription().equals("");
+			errors.state(request, hasDescriptor, "description", "employer.job.error.must-have-description");
+
 			// Contar spam en las duties
 
 			Collection<Duty> jobDuties = this.repository.findDutiesFromJob(entity.getId());

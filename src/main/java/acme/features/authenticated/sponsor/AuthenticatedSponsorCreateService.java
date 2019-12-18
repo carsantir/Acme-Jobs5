@@ -1,6 +1,9 @@
 
 package acme.features.authenticated.sponsor;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,7 +55,7 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "organisationName", "creditCard");
+		request.unbind(entity, model, "organisationName", "creditCard", "cvv", "expirationDate");
 
 	}
 
@@ -80,6 +83,45 @@ public class AuthenticatedSponsorCreateService implements AbstractCreateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		if (entity.getCreditCard() != null && !entity.getCreditCard().isEmpty()) {
+			boolean isCorrect;
+			String cardNo = entity.getCreditCard();
+			int nDigits = cardNo.length();
+
+			int nSum = 0;
+			boolean isSecond = false;
+			for (int i = nDigits - 1; i >= 0; i--) {
+
+				int d = cardNo.charAt(i) - '0';
+
+				if (isSecond == true) {
+					d = d * 2;
+				}
+
+				nSum += d / 10;
+				nSum += d % 10;
+
+				isSecond = !isSecond;
+			}
+			isCorrect = nSum % 10 == 0;
+			errors.state(request, isCorrect, "creditCard", "authenticated.sponsor.error.credit-card");
+		}
+
+		if (entity.getExpirationDate() != null && !entity.getExpirationDate().isEmpty()) {
+			boolean isFormat = entity.getExpirationDate().matches("^(0[1-9]{1}|1[0-2]{1})/\\d{4}$");
+			errors.state(request, isFormat, "expirationDate", "authenticated.sponsor.error.invalid-format");
+
+			if (isFormat) {
+				boolean isFuture;
+				Calendar hoy = new GregorianCalendar();
+				String[] fecha = entity.getExpirationDate().split("/");
+				Integer year = Integer.parseInt(fecha[1]);
+				Integer month = Integer.parseInt(fecha[0]);
+				isFuture = year > hoy.get(Calendar.YEAR) || hoy.get(Calendar.YEAR) == year && month > hoy.get(Calendar.MONTH);
+				errors.state(request, isFuture, "expirationDate", "authenticated.sponsor.error.expiration-date");
+			}
+		}
 
 	}
 
