@@ -18,6 +18,10 @@
 
 <tiles-definitions>
 
+	<definition name="authenticated/can-participate/list" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/can-participate/list.jsp" />
+	</definition>
+
 	<definition name="authenticated/can-participate/form" extends="master">
 		<put-attribute name="body" type="template" value="../authenticated/can-participate/form.jsp" />
 	</definition>

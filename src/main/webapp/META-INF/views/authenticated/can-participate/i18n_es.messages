@@ -8,8 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.canParticipate.form.button.username = Usuario
+authenticated.can-participate.list.label.userAccount.username = Usuarios involucrados
+authenticated.can-participate.list.label.messageThread = Título del hilo
+authenticated.can-participate.list.button.return = Volver a la lista de hilos
 
-authenticated.canParticipate.form.button.create = Add user to message thread
-authenticated.canParticipate.form.button.return = Volver a la lista de hilos
-canParticipate.message.error.isNew = No puedes volver a añadir al usuario al hilo
+authenticated.can-participate.form.label.userAccount.username = Usuario involucrado
+authenticated.can-participate.form.label.messageThread = Título del hilo
+authenticated.can-participate.form.button.delete = Borrar usuario del hilo
+authenticated.can-participate.form.button.return = Volver a la lista de usuarios involucrados
