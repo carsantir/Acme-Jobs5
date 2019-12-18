@@ -36,3 +36,4 @@ employer.job.error.must-be-euro = Reward currency must be € or EUR (which repr
 employer.job.duty.error.spam=Duties linked to this job contain more spam words than allowed in their fields
 employer.job.error.apps=You cannot delete a job with worker's applications
 employer.job.error.must-have-description=The job must have a description to be updated as published
+employer.job.error.duplicated=That reference is already in use
