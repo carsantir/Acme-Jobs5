@@ -36,7 +36,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, "totalAnnouncements", "totalCompanyRecords", "totalInvestorRecords", "minRewardRequest", "maxRewardRequest", "averageRewardRequest", "sdRewardRequest", "minRewardOffer", "maxRewardOffer", "averageRewardOffer",
 			"sdMinRewardOffer", "sdMaxRewardOffer", "companiesPerSector", "companySectors", "investorsPerSector", "investorSectors", "avgJobsPerEmployer", "avgApplicationsPerEmployer", "avgApplicationsPerWorker", "ratioOfPendingApplications",
-			"ratioOfAcceptedApplications", "ratioOfRejectedApplications", "ratioOfDraftJobs", "ratioOfPublishedJobs", "lastFourWeeksPerDay", "pendingApplicationsPerDay");
+			"ratioOfAcceptedApplications", "ratioOfRejectedApplications", "ratioOfDraftJobs", "ratioOfPublishedJobs", "lastFourWeeksPerDay", "pendingApplicationsPerDay", "acceptedApplicationsPerDay", "rejectedApplicationsPerDay");
 	}
 
 	@Override

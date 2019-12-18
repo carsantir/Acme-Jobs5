@@ -17,7 +17,6 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.messageThread.form.label.title" path="title" />
-	<acme:form-hidden path="authenticated.id"/>	
   <jstl:if test="${command == 'show'}">
    		<acme:form-moment code="authenticated.messageThread.form.label.moment" path="moment" />
    	

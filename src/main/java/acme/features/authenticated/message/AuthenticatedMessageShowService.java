@@ -4,6 +4,7 @@ package acme.features.authenticated.message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.messageThreads.CanParticipate;
 import acme.entities.messageThreads.Message;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -21,7 +22,21 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
 
-		return true;
+		int messageId, messageThreadId;
+		Message message;
+		CanParticipate userInvolved;
+
+		messageId = request.getModel().getInteger("id");
+		message = this.repository.findOneMessageById(messageId);
+		messageThreadId = message.getMessageThread().getId();
+		userInvolved = this.repository.findOneUserInvolvedById(request.getPrincipal().getActiveRoleId(), messageThreadId);
+
+		if (userInvolved != null) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 	@Override

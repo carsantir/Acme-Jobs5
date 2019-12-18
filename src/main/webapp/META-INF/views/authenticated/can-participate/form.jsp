@@ -35,16 +35,16 @@
 	</jstl:if>
 	
 	<jstl:if test="${command == 'show'}">
-		<acme:form-textbox code="authenticated.can-participate.form.label.userAccount.username" path="authenticated.userAccount.username"/>
-	<acme:form-textbox code="authenticated.can-participate.form.label.messageThread" path="messageThread.title"/>
+		<acme:form-textbox code="authenticated.can-participate.form.label.userAccount.username" path="authenticated.userAccount.username" readonly="true"/>
+	<acme:form-textbox code="authenticated.can-participate.form.label.messageThread" path="messageThread.title" readonly="true"/>
    	
    	<acme:form-submit code="authenticated.can-participate.form.button.delete"
    			action="/authenticated/can-participate/delete"/>
    	</jstl:if>
    	
    	<jstl:if test="${command == 'delete'}">
-   	<acme:form-textbox code="authenticated.can-participate.form.label.userAccount.username" path="authenticated.userAccount.username"/>
-	<acme:form-textbox code="authenticated.can-participate.form.label.messageThread" path="messageThread.title"/>
+   	<acme:form-textbox code="authenticated.can-participate.form.label.userAccount.username" path="authenticated.userAccount.username" readonly="true"/>
+	<acme:form-textbox code="authenticated.can-participate.form.label.messageThread" path="messageThread.title" readonly="true"/>
    		<acme:form-submit code="authenticated.can-participate.form.button.delete"
    			action="/authenticated/can-participate/delete" />
    	</jstl:if>
