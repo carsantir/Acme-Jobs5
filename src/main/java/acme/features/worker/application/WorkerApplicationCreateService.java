@@ -95,6 +95,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		result.setSkills(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()).getSkillsRecord());
 		result.setQualifications(this.repository.findOneWorkerById(request.getPrincipal().getActiveRoleId()).getQualificationsRecord());
 		return result;
+
 	}
 
 	@Override
@@ -102,6 +103,10 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean isDuplicated;
+		isDuplicated = this.repository.findApplicationByReference(entity.getReferenceNumber()) != null;
+		errors.state(request, !isDuplicated, "referenceNumber", "worker.application.error.duplicated");
 
 	}
 

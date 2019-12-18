@@ -40,4 +40,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select c from Configuration c")
 	Collection<Configuration> findConfigurationParameters();
+
+	@Query("select j from Job j where j.reference = ?1")
+	Job findJobByReference(String reference);
 }

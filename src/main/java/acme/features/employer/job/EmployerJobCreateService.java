@@ -79,6 +79,10 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			isEuro = entity.getSalary().getCurrency().equals("€") || entity.getSalary().getCurrency().equals("EUR");
 			errors.state(request, isEuro, "salary", "employer.job.error.must-be-euro");
 		}
+
+		boolean isDuplicated;
+		isDuplicated = this.repository.findJobByReference(entity.getReference()) != null;
+		errors.state(request, !isDuplicated, "reference", "employer.job.error.duplicated");
 	}
 
 	@Override

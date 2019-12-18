@@ -28,3 +28,5 @@ worker.application.list.label.worker.userAccount.username = Usuario del trabajad
 worker.application.form.label.justification = Justificación del estado
 
 worker.application.form.button.return = Volver
+
+worker.application.error.duplicated = El número de referencia ya está en uso
